@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
 
+
 :root {
   --customColor: #0044ff;
   --color-secondary: #02090c;
@@ -170,20 +171,22 @@ font-family: 'Courier New', Courier, monospace;}
 }
 /* know */
 .box123-btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #238636;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 1001;
+  display: inline-block;
+  width: 14rem;
+  font-size: 13px;
+  padding: 1rem 2rem;
+  background-color: #a855f7;
+  color: #fff;
+  border-radius: .5rem;
+  border: 2px solid var(--#a855f7);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+  transition: all 300ms ease-in-out;
 }
 
-.box123-btn:hover {
+/* .box123-btn:hover {
   background-color: #2ea043;
-}
+} */
+ 
 
 .box123-popup {
   position: fixed;
@@ -1593,10 +1596,10 @@ a.btn,
 .btn-form {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: var(--customColor);
+  background-color: #a855f7;
   color: #fff;
   border-radius: .5rem;
-  border: 2px solid var(--customColor);
+  border: 2px solid #a855f7;
   box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
   transition: all 300ms ease-in-out;
 }
@@ -1762,10 +1765,10 @@ a.btn:active,
   display: inline-block;
   width: 14rem;
   padding: 1rem 2rem;
-  background-color: var(--customColor);
+  background-color: var(--#a855f7);
   color: #fff;
   border-radius: .5rem;
-  border: 2px solid var(--customColor);
+  border: 2px solid var(--#a855f7);
   box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
   transition: all 300ms ease-in-out;
 
@@ -1785,7 +1788,7 @@ a.btn:active,
   background: var(--bg-dark1234);
   padding: 4rem 2rem;
   color: var(--text-color1234);
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
 }
 
 .skills-container1234 {

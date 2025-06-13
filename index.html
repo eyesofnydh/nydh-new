@@ -666,7 +666,7 @@
           Software Tester and Automation Engineer with hands-on experience in Core Java, Selenium, API Testing, and tools like Postman and SQL. Skilled in designing and executing automated test scripts to ensure software quality and performance. Passionate about delivering reliable, high-quality applications through effective testing and continuous learning.
         </p>
         <a href="https://drive.google.com/file/d/1r3_VVsoKEG_nPOZeCTxQo4-RGZuAukll/view?usp=sharing"target="_blank"
-          class="btn">Read more</a>
+        class="btn btn-form">Read more</a>
       </div>
     </div>
 <br>
@@ -749,246 +749,242 @@
 
   
   
-  <!-- Drift Challenge -->
   
-  <section id="driftChallengeSection">
-    <br>
-    <h2 style="text-align: center;"><span style="color:rgb(138, 1, 1)">Drifty</span> Drift</h2>
-    <style>
-      #driftChallengeSection {
-        position: relative;
-        background: radial-gradient(ellipse at center, #111 0%, #000 100%);
-        overflow: hidden;
-      }
-  
-      #driftChallengeSection canvas {
-        display: block;
-        width: 100%;
-        height: 100vh;
-      }
-  
-      #driftChallengeSection #howToPlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #1c1c1c;
-        color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        z-index: 10;
-        width: 90%;
-        max-width: 400px;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        text-align: center;
-      }
-  
-      #driftChallengeSection #howToPlay h2 {
-        margin-top: 0;
-      }
-  
-      #driftChallengeSection #howToPlay button {
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        background: #fff;
-        color: #000;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-  
-      @media (max-width: 768px) {
-        #driftChallengeSection::before {
-          content: "This game works best on a laptop. Please switch to desktop.";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background: #ff3c3c;
-          color: #fff;
-          padding: 1rem;
-          text-align: center;
-          z-index: 9999;
-          font-size: 1rem;
-          font-family: Arial, sans-serif;
-        }
-  
-        canvas, #howToPlay {
-          display: none;
-        }
-      }
-    </style>
-  
-    <div id="howToPlay">
-      <h2>How to Play</h2>
-      <p>Use <strong>WASD</strong> or <strong>Arrow keys</strong> to control the car.<br>Hold <strong>Shift</strong> to drift.<br>Press <strong>Space</strong> for horn.</p>
-      <button onclick="document.getElementById('howToPlay').style.display='none'">Start Game</button>
+<section class="game-section">
+  <h2 class="game-heading">🎮 Fun Section: Snake Game</h2>
+
+  <!-- Mobile Warning -->
+  <div class="mobile-warning">
+    <p>This game is best played on a desktop!</p>
+  </div>
+
+  <!-- Game Container -->
+  <div class="game-container">
+
+    <!-- Controls always visible -->
+    <div class="game-controls">
+      <label>
+        Difficulty:
+        <select id="difficulty">
+          <option value="150">Easy</option>
+          <option value="100">Medium</option>
+          <option value="60">Hard</option>
+          <option value="40">Extreme</option>
+        </select>
+      </label>
+      <button onclick="startGame()">Play Game</button>
     </div>
-    <canvas id="gameCanvas"></canvas>
-  
-    <audio id="engineSound" src="sound/engine.mp3" loop></audio>
-    <audio id="hornSound" src="sound/horn.mp3" loop></audio>
-  
-    <script>
-      const canvas = document.getElementById("gameCanvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-  
-      const keys = {};
-      const carImage = new Image();
-      carImage.src = 'images/car.png';
-  
-      const coneImage = new Image();
-      coneImage.src = 'images/cone.png';
-  
-      const engineSound = document.getElementById("engineSound");
-      const hornSound = document.getElementById("hornSound");
-  
-      class Car {
-        constructor() {
-          this.x = canvas.width / 2;
-          this.y = canvas.height / 2;
-          this.width = 120;
-          this.height = 120;
-          this.radius = 30;
-          this.angle = 0;
-          this.speed = 0;
-          this.maxSpeed = 6;
-          this.friction = 0.03;
-          this.acceleration = 0.25;
-          this.rotationSpeed = 0.07;
-          this.accelerating = false;
-        }
-  
-        update() {
-          this.accelerating = keys["w"] || keys["ArrowUp"];
-          if (this.accelerating) {
-            this.speed += this.acceleration;
-            if (engineSound.paused) engineSound.play();
-            engineSound.playbackRate = 1;
-          } else {
-            this.speed *= 1 - this.friction;
-            engineSound.pause();
-          }
-  
-          if (keys["s"] || keys["ArrowDown"]) this.speed -= this.acceleration * 0.5;
-          if (keys["a"] || keys["ArrowLeft"]) this.angle -= this.rotationSpeed * (this.speed / this.maxSpeed);
-          if (keys["d"] || keys["ArrowRight"]) this.angle += this.rotationSpeed * (this.speed / this.maxSpeed);
-          if (keys["Shift"]) this.speed *= 0.95;
-  
-          this.speed = Math.max(Math.min(this.speed, this.maxSpeed), -this.maxSpeed / 2);
-          this.x += Math.cos(this.angle) * this.speed;
-          this.y += Math.sin(this.angle) * this.speed;
-  
-          if (this.x < 0) this.x = canvas.width;
-          if (this.x > canvas.width) this.x = 0;
-          if (this.y < 0) this.y = canvas.height;
-          if (this.y > canvas.height) this.y = 0;
-        }
-  
-        draw() {
-          ctx.save();
-          ctx.translate(this.x, this.y);
-          ctx.rotate(this.angle);
-  
-          if (this.accelerating && this.speed > 1) {
-            this.drawFlames();
-          }
-  
-          if (carImage.complete) {
-            ctx.drawImage(carImage, -this.width / 2, -this.height / 2, this.width, this.height);
-          }
-  
-          ctx.restore();
-        }
-  
-        drawFlames() {
-  ctx.save();
-  ctx.translate(-this.width / 7, 0); // Move to back of the car
 
-  // Red flame (outer)
-  ctx.fillStyle = "red";
-  ctx.beginPath();
-  ctx.moveTo(-10, -8);
-  ctx.lineTo(-20, 0);
-  ctx.lineTo(-10, 8);
-  ctx.closePath();
-  ctx.fill();
+    <!-- Score -->
+    <div class="score-display">
+      Score: <span id="score">0</span> |
+      High Score: <span id="highScore">0</span>
+    </div>
 
-  // Yellow flame (inner)
-  ctx.fillStyle = "yellow";
-  ctx.beginPath();
-  ctx.moveTo(-6, -5);
-  ctx.lineTo(-14, 0);
-  ctx.lineTo(-6, 5);
-  ctx.closePath();
-  ctx.fill();
+    <!-- Canvas -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-  ctx.restore();
-}
+    <!-- Game Over Popup -->
+    <div id="gameOver" class="gameover-msg">
+      <p>💀 Game Over!</p>
+      <button onclick="startGame()">Play Again</button>
+    </div>
 
+    <audio id="beep" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+  .game-section {
+    padding: 40px 20px;
+    text-align: center;
+    /* font-family: 'VT323', monospace; */
+  }
+
+  .game-heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+  }
+
+  .mobile-warning {
+    display: none;
+    background: #222;
+    color: #f55;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .game-container {
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .game-controls {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+  }
+
+  .game-controls select,
+  .game-controls button {
+    font-size: 16px;
+    padding: 6px 12px;
+    margin-left: 10px;
+    border: 1px solid rgb(192, 192, 192);
+    background: #000;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .score-display {
+    margin: 10px 0;
+    font-size: 20px;
+    color: rgb(216, 216, 216);
+  }
+
+  canvas#gameCanvas {
+    background: rgba(30, 30, 30, 0.4);
+    border: 3px solid #0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0f0;
+    backdrop-filter: blur(4px);
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gameover-msg {
+    display: none;
+    margin-top: 10px;
+    background: #200;
+    color: #f44;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+  }
+
+  .gameover-msg button {
+    background: #0f0;
+    color: #000;
+    padding: 8px 16px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .game-container {
+      display: none;
+    }
+
+    .mobile-warning {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = document.getElementById('score');
+  const highScoreEl = document.getElementById('highScore');
+  const gameOverMsg = document.getElementById('gameOver');
+  const beep = document.getElementById('beep');
+
+  const gridSize = 20;
+  const tileCount = canvas.width / gridSize;
+
+  let snake, dx, dy, food, score, highScore, gameRunning, speed;
+
+  function initGame() {
+    snake = [{ x: 10, y: 10 }];
+    dx = 1; dy = 0;
+    food = randomFood();
+    score = 0;
+    scoreEl.textContent = score;
+    highScore = localStorage.getItem("highScore") || 0;
+    highScoreEl.textContent = highScore;
+    gameRunning = true;
+    gameOverMsg.style.display = 'none';
+  }
+
+  function randomFood() {
+    return {
+      x: Math.floor(Math.random() * tileCount),
+      y: Math.floor(Math.random() * tileCount)
+    };
+  }
+
+  function draw() {
+    if (!gameRunning) return;
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#f00";
+    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+
+    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+    snake.unshift(head);
+
+    if (head.x === food.x && head.y === food.y) {
+      food = randomFood();
+      score++;
+      scoreEl.textContent = score;
+      beep.play();
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", score);
+        highScoreEl.textContent = highScore;
       }
-  
-      class Cone {
-        constructor(x, y) {
-          this.x = x;
-          this.y = y;
-          this.size = 60;
-          this.radius = 30;
-        }
-  
-        draw() {
-          ctx.drawImage(coneImage, this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
-        }
-      }
-  
-      const car = new Car();
-      const cones = [];
-  
-      for (let i = 0; i < 12; i++) {
-        const posX = Math.random() * (canvas.width - 100) + 50;
-        const posY = Math.random() * (canvas.height - 100) + 50;
-        cones.push(new Cone(posX, posY));
-      }
-  
-      function detectCircleCollision(a, b) {
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        return distance < (a.radius + b.radius);
-      }
-  
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        car.update();
-  
-        cones.forEach(cone => {
-          if (detectCircleCollision(car, cone)) {
-            car.speed *= 0.5;
-            engineSound.playbackRate = 0.5;
-          }
-          cone.draw();
-        });
-  
-        car.draw();
-        requestAnimationFrame(animate);
-      }
-  
-      window.addEventListener("keydown", e => {
-        keys[e.key] = true;
-        if (e.key === " ") {
-          hornSound.currentTime = 0;
-          hornSound.play();
-        }
-      });
-  
-      window.addEventListener("keyup", e => keys[e.key] = false);
-  
-      animate();
-    </script>
-  </section>
+    } else {
+      snake.pop();
+    }
+
+    if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount ||
+        snake.slice(1).some(seg => seg.x === head.x && seg.y === head.y)) {
+      gameRunning = false;
+      gameOverMsg.style.display = 'block';
+      return;
+    }
+
+    for (let i = 0; i < snake.length; i++) {
+      let s = snake[i];
+      ctx.fillStyle = i === 0 ? "#0f8" : "#0f0";
+      ctx.fillRect(s.x * gridSize, s.y * gridSize, gridSize, gridSize);
+    }
+
+    setTimeout(draw, speed);
+  }
+
+  function startGame() {
+    speed = parseInt(document.getElementById('difficulty').value);
+    initGame();
+    draw();
+  }
+
+  function setDir(x, y) {
+    if (dx !== -x && dy !== -y) {
+      dx = x;
+      dy = y;
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowUp' || e.key === 'w') setDir(0, -1);
+    if (e.key === 'ArrowDown' || e.key === 's') setDir(0, 1);
+    if (e.key === 'ArrowLeft' || e.key === 'a') setDir(-1, 0);
+    if (e.key === 'ArrowRight' || e.key === 'd') setDir(1, 0);
+  });
+</script>
+
   <!-- Quote -->
 
   <section id="funny-thoughts-section" style="padding: 3rem 1rem; background-color: #0e0e0e; color: #fff; text-align: center; font-family: 'Segoe UI', sans-serif;">
