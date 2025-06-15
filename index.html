@@ -253,203 +253,192 @@
   </section>
   
 
-  <section class="pie-section">
-    <div class="pie-container">
-      
-      <!-- Highcharts Pie -->
+  <section class="skills-section">
+    <!-- Chart Container -->
+    <div class="chart-container">
       <div id="highchart-pie"></div>
-  
-      <!-- Custom Legend -->
-      <div class="pie-legend">
-        <div class="legend-item" data-name="Quality Analyst" style="--legend-color: #00fdfd;">
-          <i data-lucide="check-circle-2" class="legend-icon"></i>
-          Quality Analyst
-        </div>
-        <div class="legend-item" data-name="Designer" style="--legend-color: #ffc278;">
-          <i data-lucide="pen-tool" class="legend-icon"></i>
-          Designer
-        </div>
-        <div class="legend-item" data-name="Coder" style="--legend-color: #5b8cfa;">
-          <i data-lucide="code" class="legend-icon"></i>
-          Coder
-        </div>
-        <div class="legend-item" data-name="Photography" style="--legend-color: #a07afc;">
-          <i data-lucide="camera" class="legend-icon"></i>
-          Photography
-        </div>
-      </div>
     </div>
   
-    <!-- Highcharts + Lucide -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Skill Buttons -->
+    <div class="skills-buttons">
+      <div class="skill-btn analyst">✔️ Quality Analyst</div>
+      <div class="skill-btn coder">💻 Coder</div>
+      <div class="skill-btn photography">📷 Photography</div>
+      <div class="skill-btn designer">🎨 Designer</div>
+    </div>
+  </section>
   
-    <script>
-      const chart = Highcharts.chart('highchart-pie', {
+  <!-- Styles -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  
+    .skills-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      background: #0d0d0d;
+      padding: 50px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    .chart-container {
+      max-width: 400px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .skills-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 350px;
+      width: 100%;
+    }
+  
+    .skill-btn {
+      background-color: #151515;
+      border-left: 5px solid transparent;
+      padding: 15px 25px;
+      color: white;
+      border-radius: 15px;
+      font-weight: 500;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .skill-btn:hover {
+      transform: translateX(8px);
+      background: #1e1e1e;
+    }
+  
+    .analyst { border-left-color: #00e5e5; }
+    .coder { border-left-color: #4a7eff; }
+    .photography { border-left-color: #a36bf4; }
+    .designer { border-left-color: #f5c07a; }
+  
+    /* Responsive Fixes */
+    @media (max-width: 768px) {
+      .skills-section {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .highcharts-data-label text {
+        display: block !important;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .chart-container {
+        max-width: 100%;
+        padding: 10px;
+      }
+      .skills-buttons {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .highcharts-data-label text {
+        font-size: 11px !important;
+      }
+    }
+  </style>
+  
+  <!-- Scripts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  
+  <script>
+    let chart;
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      chart = Highcharts.chart('highchart-pie', {
         chart: {
-          type: 'variablepie',
-          backgroundColor: '#000',
-          height: '100%'
+          type: 'pie',
+          backgroundColor: 'transparent',
+          events: {
+            render() {
+              const chart = this;
+              const cx = chart.plotLeft + chart.plotWidth / 2 - 35;
+              const cy = chart.plotTop + chart.plotHeight / 2 - 35;
+  
+              if (!chart.customImage) {
+                chart.customImage = chart.renderer
+                  .image('./images/nidhiHead.png', cx, cy, 70, 70)
+                  .add();
+              } else {
+                chart.customImage.attr({ x: cx, y: cy });
+              }
+            }
+          }
         },
-        credits: { enabled: false },
-        title: {
-          text: null,
-          style: { color: '#ffffff', fontFamily: 'Inter, sans-serif' }
-        },
+        title: { text: null },
         tooltip: {
-          backgroundColor: '#111',
-          borderColor: '#333',
-          style: { color: '#fff', fontFamily: 'Inter, sans-serif' },
-          pointFormat: '<b>{point.name}</b><br/>Knowledge: <b>{point.z}</b>'
+          useHTML: true,
+          backgroundColor: 'rgba(0,0,0,0.7)',
+          borderColor: 'transparent',
+          borderRadius: 8,
+          style: {
+            color: '#fff',
+            fontFamily: 'Poppins, sans-serif',
+          },
+          formatter: function () {
+            return `<b>${this.key}</b>`;
+          }
         },
         plotOptions: {
-          variablepie: {
+          pie: {
             allowPointSelect: true,
             cursor: 'pointer',
+            borderColor: 'rgba(255,255,255,0.1)',
+            borderWidth: 2,
             dataLabels: {
               enabled: true,
+              format: '{point.percentage:.1f}%',
+              color: '#fff',
+              distance: -30,
               style: {
-                color: '#fff',
+                fontFamily: 'Poppins, sans-serif',
                 fontSize: '13px',
-                fontFamily: 'Inter, sans-serif'
-              }
-            },
-            states: {
-              hover: {
-                brightness: -0.1,
-                halo: {
-                  size: 10,
-                  opacity: 0.5
-                }
+                textOutline: 'none'
               }
             }
           }
         },
         series: [{
-          innerSize: '30%',
-          minPointSize: 10,
-          zMin: 0,
-          name: 'Skills',
-          borderRadius: 5,
+          name: 'Skill',
+          innerSize: '60%',
           data: [
-            { name: 'Quality Analyst', y: 505992, z: 95, color: '#00fdfd' },
-            { name: 'Designer', y: 301336, z: 198, color: '#ffc278' },
-            { name: 'Coder', y: 357114, z: 238, color: '#5b8cfa' },
-            { name: 'Photography', y: 41284, z: 224, color: '#a07afc' }
+            { name: 'Quality Analyst', y: 35, color: '#00e5e5' },
+            { name: 'Coder', y: 30, color: '#4a7eff' },
+            { name: 'Photography', y: 15, color: '#a36bf4' },
+            { name: 'Designer', y: 20, color: '#f5c07a' }
           ]
-        }]
+        }],
+        credits: { enabled: false }
       });
-      
-
-      lucide.createIcons();
   
-      // Smooth legend hover highlight
-      document.querySelectorAll('.legend-item').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          const name = item.getAttribute('data-name');
-          const point = chart.series[0].data.find(p => p.name === name);
-          if (point) {
-            point.setState('hover');
-            chart.tooltip.refresh(point); // show tooltip on hover
+      // Hover button => highlight chart slice
+      document.querySelectorAll('.skill-btn').forEach((btn, index) => {
+        btn.addEventListener('mouseenter', () => {
+          if (chart.series[0].points[index]) {
+            chart.series[0].points[index].setState('hover');
           }
         });
-        item.addEventListener('mouseleave', () => {
-          chart.series[0].data.forEach(p => p.setState(''));
-          chart.tooltip.hide();
+        btn.addEventListener('mouseleave', () => {
+          chart.series[0].points[index].setState('');
         });
       });
-    </script>
+    });
+  </script>
   
-    <!-- Style -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
   
-      .pie-section {
-        background-color: #000;
-        padding: 50px 20px;
-        font-family: 'Inter', sans-serif;
-        color: #fff;
-      }
-  
-      .pie-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* <-- Center align items vertically */
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-#highchart-pie {
-  width: 500px;
-  height: 500px;
-  max-width: 100%;
-}
-
-.pie-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 250px;
-  justify-content: center; /* <-- Center buttons vertically */
-  height: 100%; /* Allow vertical centering */
-}
-
-  
-      .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 20px;
-        border-radius: 16px;
-        background: #111;
-        color: #fff;
-        font-weight: 500;
-        border-left: 6px solid var(--legend-color);
-        box-shadow: 0 0 0 transparent;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        position: relative;
-      }
-  
-      .legend-item:hover {
-        box-shadow: 0 0 12px var(--legend-color);
-        transform: scale(1.02);
-      }
-  
-      .legend-icon {
-        color: var(--legend-color);
-      }
-  
-      /* Responsive */
-      @media (max-width: 1024px) {
-        .pie-container {
-          flex-direction: column;
-          align-items: center;
-        }
-  
-        .pie-legend {
-          width: 100%;
-          max-width: 400px;
-        }
-  
-        #highchart-pie {
-          height: 400px;
-        }
-      }
-  
-      @media (max-width: 600px) {
-        .legend-item {
-          padding: 12px 16px;
-          font-size: 15px;
-        }
-  
-        #highchart-pie {
-          height: 300px;
-        }
-      }
-    </style>
-  </section>
   
      <!-- nook -->
 
