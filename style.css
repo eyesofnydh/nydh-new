@@ -172,7 +172,7 @@ font-family: 'Courier New', Courier, monospace;}
 /* know */
 .box123-btn {
   display: inline-block;
-  width: 14rem;
+  width: 13rem;
   font-size: 13px;
   padding: 1rem 2rem;
   background-color: #a855f7;
@@ -1596,6 +1596,7 @@ a.btn,
 .btn-form {
   display: inline-block;
   padding: 1rem 2rem;
+  font-size: 12px;
   background-color: #a855f7;
   color: #fff;
   border-radius: .5rem;
