@@ -1201,9 +1201,10 @@
   }
 
   .popup-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left:50%;    
     width: 100%;
     height: 100%;
     z-index: 20;
@@ -1561,6 +1562,16 @@
     initGame();
     draw();
     gameSection.focus();
+  }
+  // ------------
+  document.addEventListener("DOMContentLoaded", () => {
+    const sectionPopup = document.getElementById("sectionPopup");
+    sectionPopup.classList.remove("hidden"); // show it when section loads
+  });
+
+  function closeSectionPopup() {
+    const sectionPopup = document.getElementById("sectionPopup");
+    sectionPopup.classList.add("hidden");
   }
 
   function setDirection(newDx, newDy) {
