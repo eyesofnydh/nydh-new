@@ -1746,13 +1746,9 @@
     });
   </script>
   <script>
-  // After existing code...
-  window.addEventListener('DOMContentLoaded', () => {
-    // Show briefing popup right when the page finishes loading
-    popupWrapper.style.display = 'flex';
-    // Give keyboard focus to the game section so arrow/WASD keys also work
-    gameSection.focus();
-  });
+    window.addEventListener("load", function () {
+        document.querySelector(".loading-section").style.display = "none";
+    });
 </script>
 <script>
   const btn123 = document.getElementById("box123-knowMoreBtn");
