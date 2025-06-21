@@ -157,7 +157,7 @@
           When I'm not testing or learning to code, you’ll find me cooking, gardening, or working out at the park. </p>
           
         <!-- <a href="https://drive.google.com/file/d/1r3_VVsoKEG_nPOZeCTxQo4-RGZuAukll/view?usp=sharing" target="_blank" class="btn">View CV</a> -->
-        <button id="box123-knowMoreBtn" class="box123-btn">Know more</button>
+        <button id="box123-knowMoreBtn" class="premium-btn-1">Know more</button>
 
 
           
@@ -251,7 +251,8 @@
     </div>
     <br><br>
   </section>
-  
+<!-- exp   -->
+ 
 
   <section class="skills-section">
     <!-- Chart Container -->
@@ -442,217 +443,742 @@
   
      <!-- nook -->
 
-     <section id="guestbook" class="guestbook">
-      <div class="guestbook-header">
-        <img src="images/ggpic.png" alt="pen icon" />
-        <h2>📖 Guestbook</h2>
-        <p class="subtext">Share your thoughts!</p>
-      </div>
-      <form id="guestbook-form">
-        <textarea placeholder="Leave a message..." required></textarea>
-        <div class="reactions">
-          <label><input type="radio" name="reaction" value="👍" checked> 👍</label>
-          <label><input type="radio" name="reaction" value="🔥"> 🔥</label>
-          <label><input type="radio" name="reaction" value="💡"> 💡</label>
+    <section id="guestbook" class="guestbook">
+  <!-- Subtle Background Effects -->
+  <div class="guestbook-bg">
+    <div class="grid-overlay"></div>
+    <div class="floating-particles"></div>
+  </div>
+
+  <div class="guestbook-container">
+    <!-- Header -->
+    <div class="guestbook-header">
+      <div class="avatar-container">
+        <div class="avatar">
+          <div class="avatar-face">
+            <div class="eyes">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+            </div>
+            <div class="mouth"></div>
+          </div>
         </div>
-        <button type="submit">Submit</button>
-      </form>
-      <ul id="messages"></ul>
-    </section>
+      </div>
+      <div class="header-content">
+        <h2 class="guestbook-title">📖 Guestbook</h2>
+        <p class="guestbook-subtitle">Share your thoughts!</p>
+      </div>
+      <div class="message-counter">
+        <span id="message-count">0</span> messages
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="guestbook-form" class="guestbook-form">
+      <div class="form-row">
+        <div class="input-group">
+          <input type="text" id="author-name" placeholder="Your name (optional)" class="form-input">
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <textarea id="message-text" placeholder="Leave a message..." required class="form-textarea"></textarea>
+      </div>
+      
+      <div class="reactions-container">
+        <div class="reactions">
+          <label class="reaction-option">
+            <input type="radio" name="reaction" value="👍" checked>
+            <span class="reaction-emoji">👍</span>
+          </label>
+          <label class="reaction-option">
+            <input type="radio" name="reaction" value="🔥">
+            <span class="reaction-emoji">🔥</span>
+          </label>
+          <label class="reaction-option">
+            <input type="radio" name="reaction" value="💡">
+            <span class="reaction-emoji">💡</span>
+          </label>
+          <label class="reaction-option">
+            <input type="radio" name="reaction" value="❤️">
+            <span class="reaction-emoji">❤️</span>
+          </label>
+          <label class="reaction-option">
+            <input type="radio" name="reaction" value="🚀">
+            <span class="reaction-emoji">🚀</span>
+          </label>
+        </div>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <span>Submit</span>
+      </button>
+    </form>
+
+    <!-- Messages -->
+    <div class="messages-section">
+      <ul id="messages" class="messages-list"></ul>
+      <div id="no-messages" class="no-messages">
+        <div class="no-messages-icon">💬</div>
+        <p>No messages yet. Be the first to leave a message!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.guestbook {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.guestbook-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-particles::before {
+  background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-particles::after {
+  background: linear-gradient(45deg, #f59e0b, #ef4444);
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 0.1;
+  }
+  50% { 
+    transform: translateY(-30px) scale(1.1); 
+    opacity: 0.2;
+  }
+}
+
+.guestbook-container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.guestbook-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: #111111;
+  border-radius: 20px;
+  border: 1px solid #1f1f1f;
+  position: relative;
+  overflow: hidden;
+}
+
+.guestbook-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+}
+
+.avatar-container {
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+  position: relative;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #8b5cf6, #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.avatar-face {
+  color: white;
+  font-size: 1rem;
+  position: relative;
+}
+
+.eyes {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  justify-content: center;
+}
+
+.eye {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.eye.left {
+  animation: blink 3s ease-in-out infinite;
+}
+
+.eye.right {
+  animation: blink 3s ease-in-out infinite 0.1s;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.mouth {
+  width: 12px;
+  height: 6px;
+  border: 2px solid white;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  margin: 0 auto;
+}
+
+.header-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-content p {
+  color: #888;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+
+.message-counter {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #1a1a1a;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #888;
+  border: 1px solid #2a2a2a;
+}
+
+.guestbook-form {
+  background: #111111;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #1f1f1f;
+  position: relative;
+}
+
+.guestbook-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  background: #151515;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #555;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.reactions-container {
+  margin-bottom: 2rem;
+}
+
+.reactions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reaction-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.reaction-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reaction-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #2a2a2a;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  background: #0a0a0a;
+}
+
+.reaction-option:hover .reaction-emoji {
+  border-color: #8b5cf6;
+  transform: scale(1.1);
+  background: #151515;
+}
+
+.reaction-option input:checked + .reaction-emoji {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.messages-section {
+  margin-top: 2rem;
+}
+
+.messages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-item {
+  background: #111111;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.message-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-item:hover {
+  background: #151515;
+  border-color: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.message-author {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.message-timestamp {
+  color: #666;
+}
+
+.message-text {
+  color: #e5e5e5;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-reaction {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: scale(1.05);
+}
+
+.no-messages {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  background: #111111;
+  border-radius: 16px;
+  border: 1px solid #1f1f1f;
+}
+
+.no-messages-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-messages p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guestbook-container {
+    padding: 1rem;
+  }
+  
+  .guestbook-header,
+  .guestbook-form {
+    padding: 1.5rem;
+  }
+  
+  .reactions {
+    gap: 0.3rem;
+  }
+  
+  .reaction-emoji {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .header-content h2 {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+<script>
+class GuestbookManager {
+  constructor() {
+    this.storageKey = 'premium_guestbook_messages';
+    this.messages = this.loadMessages();
+    this.form = document.getElementById('guestbook-form');
+    this.messagesList = document.getElementById('messages');
+    this.noMessagesEl = document.getElementById('no-messages');
+    this.messageCountEl = document.getElementById('message-count');
     
-    <style>
-    body {
-      background: #000000e6;
-      margin: 0;
-      /* font-family: 'Inter', sans-serif; */
+    this.init();
+  }
+
+  init() {
+    this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    this.renderMessages();
+    this.updateMessageCount();
+    this.addSubmitAnimation();
+  }
+
+  loadMessages() {
+    try {
+      const stored = localStorage.getItem(this.storageKey);
+      return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+      console.error('Error loading messages:', error);
+      return [];
     }
-    
-    .guestbook {
-      backdrop-filter: blur(18px);
-      background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 3rem 1.5rem;
-      max-width: 700px;
-      margin: 3rem auto;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
-      color: #f3f3f3;
-      position: relative;
-      overflow: hidden;
+  }
+
+  saveMessages() {
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.messages));
+    } catch (error) {
+      console.error('Error saving messages:', error);
     }
-    
-    .guestbook::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 60%);
-      animation: rotateBG 20s linear infinite;
-      z-index: 0;
-    }
-    
-    @keyframes rotateBG {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .guestbook * {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .guestbook-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      gap: 0.5rem;
-    }
-    
-    .guestbook-header img {
-      width: 80px;
-      opacity: 0.8;
-    }
-    
-    .guestbook-header h2 {
-      text-align: center;
-      font-size: 1.8rem;
-      color: #a78bfa;
-      letter-spacing: 0.5px;
-    }
-    
-    .subtext {
-      color: #a1a1aa;
-      font-size: 0.95rem;
-      text-align: center;
-    }
-    
-    #guestbook-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    #guestbook-form textarea {
-      background: #121212;
-      color: #e0e0e0;
-      border: 1px solid #2c2c2c;
-      border-radius: 12px;
-      padding: 1rem;
-      font-size: 0.95rem;
-      resize: vertical;
-      font-family: monospace;
-    }
-    
-    #guestbook-form textarea:focus {
-      outline: none;
-      border: 1px solid #8b5cf6;
-    }
-    
-    .reactions {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      font-size: 1.2rem;
-      user-select: none;
-    }
-    
-    button {
-      background: linear-gradient(to right, #a855f7, #7c3aed);
-      border: none;
-      padding: 0.75rem 1.2rem;
-      color: white;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    
-    button:hover {
-      background: linear-gradient(to right, #9333ea, #6b21a8);
-      transform: scale(1.03);
-    }
-    
-    #messages {
-      margin-top: 2rem;
-      list-style: none;
-      padding: 0;
-    }
-    
-    #messages li {
-      background: #181818;
-      border: 1px solid #2f2f2f;
-      padding: 1rem 1rem 1rem 1.2rem;
-      border-radius: 14px;
-      margin-bottom: 1rem;
-      position: relative;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      transition: transform 0.3s ease;
-    }
-    
-    #messages li:hover {
-      transform: scale(1.01);
-    }
-    
-    #messages li::after {
-      content: attr(data-reaction);
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      opacity: 0.8;
-    }
-    
-    .delete-btn {
-      position: absolute;
-      bottom: 0.8rem;
-      right: 1rem;
-      background: transparent;
-      border: none;
-      color: #f87171;
-      font-size: 0.9rem;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-    }
-    
-    .delete-btn:hover {
-      opacity: 1;
-    }
-    </style>
-    
-    <script>
-    const form = document.getElementById("guestbook-form");
-    const messages = document.getElementById("messages");
-    
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const text = form.querySelector("textarea").value.trim();
-      const reaction = form.querySelector("input[name='reaction']:checked").value;
-    
-      if (text) {
-        const li = document.createElement("li");
-        li.textContent = text;
-        li.setAttribute("data-reaction", reaction);
-    
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.classList.add("delete-btn");
-        deleteBtn.onclick = () => li.remove();
-    
-        li.appendChild(deleteBtn);
-        messages.prepend(li);
-    
-        form.reset();
-      }
+  }
+
+  addSubmitAnimation() {
+    const submitBtn = this.form.querySelector('.submit-btn');
+    submitBtn.addEventListener('click', () => {
+      submitBtn.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        submitBtn.style.transform = '';
+      }, 150);
     });
-    </script>
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
     
+    const messageText = document.getElementById('message-text').value.trim();
+    const authorName = document.getElementById('author-name').value.trim();
+    const reactionInput = this.form.querySelector('input[name="reaction"]:checked');
+    const reaction = reactionInput ? reactionInput.value : '👍';
+
+    if (!messageText) return;
+
+    const message = {
+      id: Date.now() + Math.random(),
+      text: messageText,
+      author: authorName || 'Anonymous',
+      reaction: reaction,
+      timestamp: new Date().toISOString()
+    };
+
+    this.addMessage(message);
+    this.form.reset();
+    
+    // Reset reaction to first option
+    const firstReaction = this.form.querySelector('input[name="reaction"]');
+    if (firstReaction) firstReaction.checked = true;
+  }
+
+  addMessage(message) {
+    this.messages.unshift(message);
+    this.saveMessages();
+    this.renderMessages();
+    this.updateMessageCount();
+  }
+
+  deleteMessage(id) {
+    this.messages = this.messages.filter(msg => msg.id !== id);
+    this.saveMessages();
+    this.renderMessages();
+    this.updateMessageCount();
+  }
+
+  formatTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diff = now - date;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    if (days < 7) return `${days}d ago`;
+    
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
+    });
+  }
+
+  renderMessages() {
+    if (this.messages.length === 0) {
+      this.messagesList.classList.add('hidden');
+      this.noMessagesEl.classList.remove('hidden');
+      return;
+    }
+
+    this.messagesList.classList.remove('hidden');
+    this.noMessagesEl.classList.add('hidden');
+
+    this.messagesList.innerHTML = this.messages.map(message => `
+      <li class="message-item" data-id="${message.id}">
+        <div class="message-header">
+          <span class="message-author">${this.escapeHtml(message.author)}</span>
+          <span class="message-timestamp">${this.formatTimestamp(message.timestamp)}</span>
+        </div>
+        <div class="message-text">${this.escapeHtml(message.text)}</div>
+        <div class="message-footer">
+          <span class="message-reaction">${message.reaction}</span>
+          <button class="delete-btn" onclick="guestbook.deleteMessage(${message.id})">
+            Delete
+          </button>
+        </div>
+      </li>
+    `).join('');
+  }
+
+  updateMessageCount() {
+    this.messageCountEl.textContent = this.messages.length;
+  }
+
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+}
+
+// Initialize the premium guestbook
+const guestbook = new GuestbookManager();
+
+// Auto-refresh timestamps
+setInterval(() => {
+  guestbook.renderMessages();
+}, 60000);
+</script>
   
   <!-- Services  -->
   <section class="section theme" id="services">
@@ -816,8 +1342,8 @@
         <p>
           Software Tester and Automation Engineer with hands-on experience in Core Java, Selenium, API Testing, and tools like Postman and SQL. Skilled in designing and executing automated test scripts to ensure software quality and performance. Passionate about delivering reliable, high-quality applications through effective testing and continuous learning.
         </p>
-        <button href="https://drive.google.com/file/d/1r3_VVsoKEG_nPOZeCTxQo4-RGZuAukll/view?usp=sharing"target="_blank"
-        class="btn btn-form">Read more</button>
+        <a href="https://drive.google.com/file/d/1r3_VVsoKEG_nPOZeCTxQo4-RGZuAukll/view?usp=sharing"target="_blank"
+        class="premium-btn-2">Read more</a>
       </div>
     </div>
 <br>
@@ -1215,6 +1741,7 @@
 
   .popup-overlay {
     position: absolute;
+    width: 100%;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
@@ -1719,7 +2246,7 @@
           </div>
 
           <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message"></textarea>
-          <button type="submit" class="btn btn-form">Send message</button>
+          <button type="submit" class="premium-btn-1">Send message</button>
         </form>
       </div>
     </div>
