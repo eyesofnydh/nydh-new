@@ -1182,6 +1182,119 @@ setInterval(() => {
 </script>
   
   <!-- Services  -->
+   <section class="section theme" id="services">
+        <section class="container" id="services">
+      <div class="title">
+          <h1>My <span>Projects</span><span class="bg-text"></span></h1>
+      </div>
+      <p class="port-text">
+        <span style="color:rgb(255, 255, 255)">Here is some of my Projects that I've done in various programming languages.</span>
+      </p>
+        <div class="projects-filter">
+            <button class="filter-btn active" onclick="filterProjects('all'); playSound()">All</button>
+            <button class="filter-btn" onclick="filterProjects('web'); playSound()">Web Dev</button>
+            <button class="filter-btn" onclick="filterProjects('qa'); playSound()">QA Testing</button>
+            <button class="filter-btn" onclick="filterProjects('ml'); playSound()">Machine Learning</button>
+            <button class="filter-btn" onclick="filterProjects('creative'); playSound()">Creative</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-vote-yea"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Block Ballet (E-vote)</h4>
+                    <p>Blockchain-integrated e-voting platform ensuring secure and transparent voting processes.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">HTML</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">MySQL</span>
+                        <span class="tool-tag">Blockchain</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Handrix</h4>
+                    <p>Interactive web-based game with engaging gameplay mechanics and responsive design.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">HTML5</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">Canvas</span>
+                        <span class="tool-tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Fit-Track</h4>
+                    <p>Comprehensive online gym management system with member tracking and scheduling features.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">HTML</span>
+                        <span class="tool-tag">CSS</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">PHP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Personal Portfolio</h4>
+                    <p>Responsive portfolio website showcasing technical and creative projects with modern design.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">HTML</span>
+                        <span class="tool-tag">CSS</span>
+                        <span class="tool-tag">JavaScript</span>
+                        <span class="tool-tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ml">
+                <div class="project-image">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="project-info">
+                    <h4>House Price Prediction</h4>
+                    <p>Machine learning model to predict house prices using advanced algorithms and data analysis.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Scikit-learn</span>
+                        <span class="tool-tag">Pandas</span>
+                        <span class="tool-tag">NumPy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ml">
+                <div class="project-image">
+                    <i class="fas fa-dog"></i>
+                </div>
+                <div class="project-info">
+                    <h4>SVM Image Classification</h4>
+                    <p>Support Vector Machine implementation for classifying cats and dogs using computer vision techniques.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">OpenCV</span>
+                        <span class="tool-tag">SVM</span>
+                        <span class="tool-tag">TensorFlow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="port-text">
+            <span style="color: var(--text-secondary)">For more projects, check out my <a href="https://github.com/eyesofnydh" target="_blank">GitHub</a> profile.</span>
+        </p>
+    </section>
+</section>
+
   <section class="section theme" id="services">
     <section class="container" id="services">
       <div class="title">
@@ -2149,7 +2262,7 @@ setInterval(() => {
     }
   });
 </script>
-<section id="myr-dino-game" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 20px; font-family: 'Courier New', monospace; background: #000000;">
+<section id="myr-dino-game" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 20px; font-family: 'Courier New', monospace; background: #000000;" tabindex="0">
     <div style="background: #1a1a1a; border: 2px solid #444; border-radius: 8px; overflow: hidden; position: relative;">
         <div style="padding: 10px; text-align: center; background: #2d2d2d; color: #fff;">
             <span id="myr-score" style="font-size: 16px; font-weight: bold;">HI 00000 00000</span>
@@ -2163,7 +2276,7 @@ setInterval(() => {
         </div>
         
         <div style="padding: 15px; text-align: center; background: #2d2d2d; border-top: 1px solid #444;">
-            <p style="margin: 0; font-size: 14px; color: #ccc;">Tap to jump • Hold to duck</p>
+            <p style="margin: 0; font-size: 14px; color: #ccc;">Click here first, then use keys: Space/↑ to jump • ↓ to duck</p>
         </div>
     </div>
 
@@ -2173,12 +2286,13 @@ setInterval(() => {
             const ctx = canvas.getContext('2d');
             const scoreEl = document.getElementById('myr-score');
             const gameOverEl = document.getElementById('myr-gameOver');
+            const gameSection = document.getElementById('myr-dino-game');
             
             // Game state
             let gameRunning = false;
             let gameSpeed = 6;
             let score = 0;
-            let highScore = parseInt(localStorage.getItem('myrDinoHighScore') || '0');
+            let highScore = 0; // Removed localStorage for artifacts
             
             // Dino properties
             const dino = {
@@ -2226,7 +2340,6 @@ setInterval(() => {
                 score++;
                 if (score > highScore) {
                     highScore = score;
-                    localStorage.setItem('myrDinoHighScore', highScore.toString());
                 }
                 scoreEl.textContent = `HI ${highScore.toString().padStart(5, '0')} ${score.toString().padStart(5, '0')}`;
             }
@@ -2426,8 +2539,8 @@ setInterval(() => {
                 startGame();
             }
             
-            // Event listeners
-            document.addEventListener('keydown', (e) => {
+            // FOCUSED EVENT LISTENERS - Only work when game section is focused
+            gameSection.addEventListener('keydown', (e) => {
                 keys[e.code] = true;
                 if ((e.code === 'Space' || e.code === 'ArrowUp') && !gameRunning) {
                     startGame();
@@ -2435,8 +2548,13 @@ setInterval(() => {
                 e.preventDefault();
             });
             
-            document.addEventListener('keyup', (e) => {
+            gameSection.addEventListener('keyup', (e) => {
                 keys[e.code] = false;
+            });
+            
+            // Auto-focus when clicking on the game area
+            gameSection.addEventListener('click', () => {
+                gameSection.focus();
             });
             
             // Touch events for mobile
@@ -2482,7 +2600,6 @@ setInterval(() => {
         })();
     </script>
 </section>
-
 
 
   <!-- Quote -->
@@ -2656,6 +2773,38 @@ setInterval(() => {
       }, 300); // delay for slide-in effect
     }
   });
+</script>
+<script>
+// Filter functionality
+function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filter cards
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// Sound effect placeholder (you can add actual sound if needed)
+function playSound() {
+    // Add sound effect here if desired
+    console.log('Button clicked!');
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Set initial state
+    filterProjects('all');
+});
 </script>
 
 
