@@ -2343,7 +2343,7 @@ setInterval(() => {
             
             function updateScore() {
                 frameCount++;
-                if (frameCount % 5 === 0) { // Update score every 5 frames
+                if (frameCount % 8 === 0) { // Update score every 8 frames (slower)
                     score++;
                     if (score > highScore) {
                         highScore = score;
@@ -2394,8 +2394,8 @@ setInterval(() => {
                     ctx.fillRect(dino.x - 8, dino.y + 18, 10, 5);
                     
                     // Animated legs
-                    const legOffset = Math.floor(frameCount / 8) % 2 === 0 ? 0 : 3;
-                    const legOffset2 = Math.floor(frameCount / 8) % 2 === 0 ? 3 : 0;
+                    const legOffset = Math.floor(frameCount / 15) % 2 === 0 ? 0 : 3;
+                    const legOffset2 = Math.floor(frameCount / 15) % 2 === 0 ? 3 : 0;
                     
                     // Back leg
                     ctx.fillRect(dino.x + 12, dino.y + 35, 6, 12 + legOffset);
@@ -2476,7 +2476,7 @@ setInterval(() => {
                         ctx.fillRect(obstacle.x + 22, obstacle.y + 8, 6, 2); // beak
                         
                         // Wing animation
-                        const wingFlap = Math.floor(frameCount / 6) % 2;
+                        const wingFlap = Math.floor(frameCount / 12) % 2;
                         if (wingFlap === 0) {
                             // Wings up
                             ctx.fillRect(obstacle.x, obstacle.y + 2, 15, 4);
@@ -2656,9 +2656,9 @@ setInterval(() => {
                 // Update score continuously
                 updateScore();
                 
-                // Increase speed every 100 points
-                if (score % 100 === 0 && score > 0) {
-                    gameSpeed += 0.05;
+                // Increase speed every 150 points (slower progression)
+                if (score % 150 === 0 && score > 0) {
+                    gameSpeed += 0.03; // Smaller speed increases
                 }
                 
                 requestAnimationFrame(gameLoop);
@@ -2671,7 +2671,7 @@ setInterval(() => {
             
             function startGame() {
                 gameRunning = true;
-                gameSpeed = 6;
+                gameSpeed = 4; // Reduced starting speed
                 score = 0;
                 frameCount = 0;
                 obstacles = [];
