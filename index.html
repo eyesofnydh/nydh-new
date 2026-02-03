@@ -2096,7 +2096,7 @@ setInterval(() => {
   // ------------
   document.addEventListener("DOMContentLoaded", () => {
     const sectionPopup = document.getElementById("sectionPopup");
-    sectionPopup.classList.remove("hidden"); // show it when section loads
+    if (sectionPopup) sectionPopup.classList.remove("hidden"); // show it when section loads
   });
 
   function closeSectionPopup() {
@@ -2640,10 +2640,7 @@ setInterval(() => {
             // Initialize
             scoreEl.textContent = `HI ${highScore.toString().padStart(5, '0')} ${score.toString().padStart(5, '0')}`;
             
-            // Auto-focus on load for better accessibility
-            setTimeout(() => {
-                gameSection.focus();
-            }, 100);
+            // Removed auto-focus on load to prevent page auto-scrolling to the game
             
             // Draw initial state
             ctx.clearRect(0, 0, canvas.width, canvas.height);
