@@ -26,6 +26,10 @@
 
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/skills-chart.css">
+  <link rel="stylesheet" href="css/guestbook.css">
+  <link rel="stylesheet" href="css/snake-game.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
@@ -52,7 +56,7 @@
     <nav class="nav">
       <div class="navigation container">
         <div class="logo">
-          <a href=""><h1>ny<span>dh</span></h1></a>
+          <a href="#home" aria-label="Nidhin home"><h1>ny<span>dh</span></h1></a>
         </div>
     
         <div class="menu" id="navigation-menu">
@@ -60,9 +64,7 @@
             <div class="logo">
               <h1>Nidhin <span>Narayanan</span></h1>
             </div>
-            <div class="close" role="button" tabindex="0" aria-label="Close menu">
-              <i class="fas fa-times"></i>
-            </div>
+            <button type="button" class="close" aria-label="Close menu">×</button>
           </div>
     
           <ul class="nav-list">
@@ -77,9 +79,7 @@
           </ul>
         </div>
    
-        <div class="hamburger" role="button" tabindex="0" aria-label="Open menu" aria-controls="navigation-menu" aria-expanded="false">
-          <!-- <i class="fas fa-bars"></i> -->
-        </div>
+        <button type="button" class="hamburger" aria-label="Open menu" aria-controls="navigation-menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
       </div>
     </nav>
   </header>
@@ -127,9 +127,9 @@
       <a href="#contact">Hire me</a>
     </div>  -->
     <div class="iconsss">
-      <span><a href="https://www.linkedin.com/in/nidhin-narayanan/"><i class="fab fa-linkedin"></i></a></span>
-      <span><a href="https://www.github.com/eyesonydh"><i class="fab fa-github"></i></a></span>
-      <span><a href="https://www.instagram.com/nidh._i_/" target="_blank"><i class="fab fa-instagram"></i></a></span>
+      <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" aria-label="linkedin"><i class="fab fa-linkedin"></i></a></span>
+      <span><a href="https://www.github.com/eyesonydh" aria-label="github"><i class="fab fa-github"></i></a></span>
+      <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer" aria-label="instagram"><i class="fab fa-instagram"></i></a></span>
     </div>
 
   </div>
@@ -149,7 +149,7 @@
         <img src="./images/about1.png" alt="" />
       </div>
       <div class="right" data-aos="fade-left" data-aos-duration="1500">
-        <h1>I'm Nidhin a <span id="type2" class="typeit"></span></h1>
+        <h1>I'm Nidhin a <span id="type2" class="typeit">Quality Analyst</span></h1>
         <p style="color: beige">
            
           I'm currently working as a Quality Analyst, making sure products are reliable and work smoothly. 
@@ -169,7 +169,7 @@
 <div id="box123-popup" class="box123-popup box123-hidden">
   <div class="box123-popup-overlay">
     <div class="box123-popup-inner">
-      <div class="box123-popup-content box123-slide-in">
+      <div class="box123-popup-content box123-slide-in" role="dialog" aria-modal="true" aria-label="About Nidhin">
         <span class="box123-close-btn" role="button" tabindex="0" aria-label="Close about dialog">&times;</span>
 
         <div class="box123-section">
@@ -200,9 +200,9 @@
         <div class="box123-section">
           <h4>🔗 Connect</h4>
           <p>
-            🌐 <a href="https://nidhinnarayanan.netlify.app" target="_blank">Website</a> |
-            💼 <a href="https://www.linkedin.com/in/nidhin-narayanan" target="_blank">LinkedIn</a> |
-            📷 <a href="https://www.instagram.com/eyesofnydh/" target="_blank">Instagram</a>
+            🌐 <a href="https://nidhinnarayanan.netlify.app" target="_blank" rel="noopener noreferrer">Website</a> |
+            💼 <a href="https://www.linkedin.com/in/nidhin-narayanan" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            📷 <a href="https://www.instagram.com/eyesofnydh/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </p>
         </div>
       </div>
@@ -270,14 +270,13 @@
   </section>
   
   <!-- Styles -->
-  <link rel="stylesheet" href="css/skills-chart.css">
   
   <!-- Scripts -->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script defer src="https://code.highcharts.com/highcharts.js"></script>
+  <script defer src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script defer src="https://code.highcharts.com/modules/accessibility.js"></script>
   
-  <script src="js/skills-chart.js"></script>
+  <script defer src="js/skills-chart.js"></script>
   
   
   
@@ -317,12 +316,12 @@
     <form id="guestbook-form" class="guestbook-form">
       <div class="form-row">
         <div class="input-group">
-          <input type="text" id="author-name" placeholder="Your name (optional)" class="form-input">
+          <input type="text" id="author-name" aria-label="Your name" maxlength="100" placeholder="Your name (optional)" class="form-input">
         </div>
       </div>
       
       <div class="input-group">
-        <textarea id="message-text" placeholder="Leave a message..." required class="form-textarea"></textarea>
+        <textarea id="message-text" aria-label="Guestbook message" maxlength="2000" placeholder="Leave a message..." required class="form-textarea"></textarea>
       </div>
       
       <div class="reactions-container">
@@ -366,9 +365,7 @@
   </div>
 </section>
 
-<link rel="stylesheet" href="css/guestbook.css">
-
-<script src="js/guestbook.js"></script>
+<script defer src="js/guestbook.js"></script>
   
   <!-- Services  -->
    
@@ -382,7 +379,7 @@
         <span style="color:rgb(255, 255, 255)">Here is some of my Projects that I've done in various programming languages.</span>
       </p>
       <div class="portfolios">
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (1).jpg" alt="">
               </div>
@@ -390,14 +387,13 @@
                   <h3>Block Ballet</h3>
                   <p>It is a E-voting platform</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/e-vote/blob/main/README.md" class="icons">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/e-vote/blob/main/README.md" class="icons" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                      
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (4).jpg" alt="">
               </div>
@@ -405,13 +401,12 @@
                   <h3>Handrix</h3>
                   <p>A web based game.</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/Handrix/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/Handrix/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (6).jpg" alt="">
               </div>
@@ -419,14 +414,13 @@
                   <h3>Fit-Track</h3>
                   <p>online gym <br>management System.</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/Fit-track/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/Fit-track/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (2).jpg" alt="">
               </div>
@@ -434,14 +428,13 @@
                   <h3>Portifolio</h3>
                   
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/profile/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/profile/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (3).jpg" alt="">
               </div>
@@ -449,30 +442,27 @@
                   <h3>House Price Prediction</h3>
                   <p>predict the prices<br> of houses using<br> machine learning</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK01/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK01/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (5).jpg" alt="">
               </div>
               <div class="hover-items">
                   <h3>SVM Image Classification for Cats and Dogs</h3>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK03/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
-                      </a>
+                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK03/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                   </div>
               </div>
           </div>
       </div>
       <p class="port-text">
-        <span style="color:rgb(255, 255, 255)">For more projects, check out my <a href="https://github.com/eyesofnydh" target="_blank">GitHub</a> profile.</span>
+        <span style="color:rgb(255, 255, 255)">For more projects, check out my <a href="https://github.com/eyesofnydh" target="_blank" rel="noopener noreferrer">GitHub</a> profile.</span>
       </p>
   </section>
   </section>
@@ -584,9 +574,7 @@
   <h2 class="game-heading">🐍 SNAKE GAME</h2>
 
   <!-- Mobile Warning -->
-  <div class="mobile-warning">
-    <p>⚠️ This experience is optimized for desktop!</p>
-  </div>
+  <p class="game-help">Arrow keys or WASD on desktop. Use the direction buttons on touch screens.</p>
 
   <!-- Game Container -->
   <div class="game-container">
@@ -611,7 +599,7 @@
             <option value="boxless">Endless</option>
           </select>
         </label>
-        <button onclick="startGame()" class="premium-btn">▶ START GAME</button>
+        <button data-snake-start class="premium-btn">▶ START GAME</button>
       </div>
 
       <!-- Score Display -->
@@ -629,7 +617,7 @@
 
     <!-- Canvas Container -->
     <div class="canvas-container">
-      <canvas id="gameCanvas" width="800" height="500"></canvas>
+      <canvas id="gameCanvas" width="800" height="500" aria-label="Snake game board">Use the direction controls to play Snake.</canvas>
       
       <!-- Quote Display -->
       <div id="quoteDisplay" class="quote-display">
@@ -637,30 +625,37 @@
       </div>
     </div>
 
+    <div class="snake-touch-controls" aria-label="Snake controls">
+      <button type="button" data-direction="up" aria-label="Move up">↑</button>
+      <div><button type="button" data-direction="left" aria-label="Move left">←</button>
+      <button type="button" id="snake-pause" aria-label="Pause game" aria-pressed="false">Ⅱ</button>
+      <button type="button" data-direction="right" aria-label="Move right">→</button></div>
+      <button type="button" data-direction="down" aria-label="Move down">↓</button>
+    </div>
     <!-- Game Over Message -->
     <div id="gameOver" class="gameover-msg">
       <p>💀 GAME TERMINATED!</p>
       <p style="font-size: 16px; margin-top: 10px;">Your performance has been recorded.</p>
-      <button onclick="startGame()" class="premium-btn">🔄 RESTART MISSION</button>
+      <button data-snake-start class="premium-btn">🔄 RESTART MISSION</button>
     </div>
 
     <!-- Game Paused Message -->
     <div id="pauseOverlay" class="pause-overlay">
       ⏸️ MISSION PAUSED
-      <br><small style="font-size: 16px; color: #888;">Press <span class="key-highlight">ESC</span> to Resume</small>
+      <br><small style="font-size: 16px; color: #888;">Press <span class="key-highlight">ESC</span> or the pause button to resume</small>
     </div>
 
     <!-- Instruction Popup -->
-    <div class="popup-wrapper" id="popupWrapper">
-      <div class="popup-overlay" onclick="closePopup()"></div>
-      <div class="glass-popup">
+    <div class="popup-wrapper" id="popupWrapper" style="display:none">
+      <div class="popup-overlay" data-snake-begin></div>
+      <div class="glass-popup" role="dialog" aria-label="Snake game instructions">
         <h3>🎮 MISSION BRIEFING</h3>
         <p>
           Navigate using <span class="key-highlight">Arrow Keys</span> or <span class="key-highlight">WASD</span><br><br>
           Press <span class="key-highlight">ESC</span> to Pause/Resume<br><br>
           Collect energy orbs to grow stronger!
         </p>
-        <button onclick="closePopup()" class="premium-btn">🚀 BEGIN MISSION</button>
+        <button data-snake-begin class="premium-btn">🚀 BEGIN MISSION</button>
       </div>
     </div>
   </div>
@@ -674,672 +669,9 @@
   </audio>
 </section>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
-  .game-section {
-    padding: 40px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    color: #ffffff;
-    outline: none;
-    position: relative;
-    font-family: 'Orbitron', monospace;
-  }
 
-  .game-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(0, 255, 127, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .game-heading {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    background: linear-gradient(45deg, #00ff7f, #ffd700, #ff69b4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900;
-    text-shadow: 0 0 30px rgba(0, 255, 127, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from { filter: drop-shadow(0 0 20px rgba(0, 255, 127, 0.3)); }
-    to { filter: drop-shadow(0 0 40px rgba(0, 255, 127, 0.6)); }
-  }
-
-  .mobile-warning {
-    display: none;
-    background: linear-gradient(135deg, #2d1810, #1a1a1a);
-    color: #ff6b6b;
-    padding: 30px;
-    border-radius: 15px;
-    font-size: 20px;
-    border: 2px solid #ff6b6b;
-    box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
-  }
-
-  .game-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .game-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .game-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  .game-controls label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #00ff7f;
-  }
-
-  .game-controls select,
-  .premium-btn {
-    font-family: 'Orbitron', monospace;
-    font-size: 14px;
-    padding: 12px 20px;
-    margin: 5px;
-    border: 2px solid #00ff7f;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.8));
-    color: #00ff7f;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .game-controls select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='%2300ff7f' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px 16px;
-    padding-right: 40px;
-  }
-
-  .premium-btn {
-    background: linear-gradient(135deg, #00ff7f, #00cc66);
-    color: #000;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .premium-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-  }
-
-  .premium-btn:hover::before {
-    left: 100%;
-  }
-
-  .premium-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 255, 127, 0.4);
-  }
-
-  .score-display {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .score-item {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(26, 26, 26, 0.7));
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 1px solid #333;
-    backdrop-filter: blur(10px);
-  }
-
-  .score-item .label {
-    color: #888;
-    font-size: 14px;
-  }
-
-  .score-item .value {
-    color: #00ff7f;
-    font-size: 20px;
-    font-weight: 900;
-  }
-
-  .canvas-container {
-    position: relative;
-    margin: 20px auto;
-    display: inline-block;
-  }
-
-  canvas#gameCanvas {
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.9));
-    border: 3px solid #00ff7f;
-    border-radius: 15px;
-    box-shadow: 
-      0 0 30px rgba(0, 255, 127, 0.5),
-      inset 0 0 20px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    display: block;
-  }
-
-  .quote-display {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
-    color: #ffd700;
-    padding: 20px 30px;
-    border-radius: 15px;
-    border: 2px solid #ffd700;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: all 0.3s ease;
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  .quote-display.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .gameover-msg {
-    display: none;
-    margin-top: 20px;
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
-    color: #ff6b6b;
-    padding: 25px;
-    border-radius: 15px;
-    font-size: 24px;
-    font-weight: 700;
-    border: 2px solid #ff6b6b;
-    box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
-    backdrop-filter: blur(10px);
-  }
-
-  .pause-overlay {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
-    color: #fff;
-    font-size: 28px;
-    font-weight: 700;
-    padding: 30px 40px;
-    border: 3px solid #00ff7f;
-    border-radius: 15px;
-    z-index: 15;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0, 255, 127, 0.6);
-    backdrop-filter: blur(15px);
-  }
-
-  .popup-wrapper {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left:50%;    
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .popup-overlay {
-    position: absolute;
-    width: 100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-  }
-
-  .glass-popup {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
-    color: white;
-    padding: 40px;
-    width: 500px;
-    text-align: center;
-    border-radius: 20px;
-    border: 3px solid #00ff7f;
-    box-shadow: 0 0 50px rgba(0, 255, 127, 0.6);
-    backdrop-filter: blur(15px);
-    position: relative;
-    z-index: 2;
-  }
-
-  .glass-popup h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #00ff7f;
-    font-weight: 900;
-  }
-
-  .glass-popup p {
-    font-size: 18px;
-    margin-bottom: 25px;
-    line-height: 1.6;
-  }
-
-  .key-highlight {
-    color: #ffd700;
-    font-weight: 700;
-    background: rgba(255, 215, 0, 0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  .particle {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 50%;
-    animation: particle-float 1s ease-out forwards;
-  }
-
-  @keyframes particle-float {
-    0% {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.3) translateY(-50px);
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .game-container {
-      max-width: 800px;
-    }
-    
-    canvas#gameCanvas {
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .game-container {
-      display: none;
-    }
-
-    .mobile-warning {
-      display: block;
-    }
-
-    .game-heading {
-      font-size: 2.5rem;
-    }
-  }
-</style>
-
-<script>
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas.getContext('2d');
-  const scoreEl = document.getElementById('score');
-  const highScoreEl = document.getElementById('highScore');
-  const gameOverMsg = document.getElementById('gameOver');
-  const popupWrapper = document.getElementById('popupWrapper');
-  const pauseOverlay = document.getElementById('pauseOverlay');
-  const quoteDisplay = document.getElementById('quoteDisplay');
-  const quoteText = document.getElementById('quoteText');
-  const eatSound = document.getElementById('eatSound');
-  const gameOverSound = document.getElementById('gameOverSound');
-  const gameSection = document.querySelector('.game-section');
-
-  const gridSize = 25;
-  const tileCountX = Math.floor(canvas.width / gridSize);
-  const tileCountY = Math.floor(canvas.height / gridSize);
-
-  let snake, dx, dy, food, score, highScore, gameRunning, speed, gameLoop, paused, mode;
-
-  // Motivational quotes for eating food
-  const quotes = [
-  "🔥 Unstoppable! …until the build fails.",
-  "⚡ Power surge! Just ran 100 unit tests in 0.0001s (they all failed).",
-  "💎 Flawless execution! Except for that one semicolon I missed.",
-  "🚀 Next level! Pushed to production on a Friday.",
-  "⭐ Legendary move! Found a bug before the client did.",
-  "🎯 Perfect aim! Clicked “Run” instead of “Debug”... again.",
-  "💥 Dominating! My backlog of unresolved tickets.",
-  "🏆 Elite performance! Deployed without crying (much).",
-  "🌟 Outstanding! Logged in as admin on the first try.",
-  "🔮 Magical! The bug disappeared when I showed it to someone.",
-  "⚡ Lightning fast! Wrote 3 lines of code in 4 hours.",
-  "🎭 Masterful! Pretended I understood that regex.",
-  "🏅 Champion move! Fixed the bug by deleting the entire function.",
-  "🎪 Spectacular! My code passes all tests—because I disabled them.",
-  "🦾 Invincible! Until the tester logs a “UI not aligned” bug."
-];
-
-  function initGame() {
-    snake = [{ x: Math.floor(tileCountX/2), y: Math.floor(tileCountY/2) }];
-    dx = 1; 
-    dy = 0;
-    food = randomFood();
-    score = 0;
-    scoreEl.textContent = score;
-    highScore = parseInt(localStorage.getItem("snakeHighScore")) || 0;
-    highScoreEl.textContent = highScore;
-    gameRunning = true;
-    paused = false;
-    gameOverMsg.style.display = 'none';
-    pauseOverlay.style.display = 'none';
-    quoteDisplay.classList.remove('show');
-  }
-
-  function randomFood() {
-    let newFood;
-    do {
-      newFood = {
-        x: Math.floor(Math.random() * tileCountX),
-        y: Math.floor(Math.random() * tileCountY)
-      };
-    } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
-    return newFood;
-  }
-
-  function drawGrid() {
-    ctx.strokeStyle = 'rgba(0, 255, 127, 0.1)';
-    ctx.lineWidth = 1;
-    
-    // Vertical lines
-    for (let x = 0; x <= canvas.width; x += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, canvas.height);
-      ctx.stroke();
-    }
-    
-    // Horizontal lines
-    for (let y = 0; y <= canvas.height; y += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(canvas.width, y);
-      ctx.stroke();
-    }
-  }
-
-  function createParticles(x, y) {
-    const colors = ['#00ff7f', '#ffd700', '#ff69b4', '#00bfff'];
-    for (let i = 0; i < 8; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = (x * gridSize + gridSize/2) + 'px';
-      particle.style.top = (y * gridSize + gridSize/2) + 'px';
-      particle.style.width = '6px';
-      particle.style.height = '6px';
-      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.transform = `translate(${(Math.random() - 0.5) * 60}px, ${(Math.random() - 0.5) * 60}px)`;
-      
-      document.querySelector('.canvas-container').appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 1000);
-    }
-  }
-
-  function showQuote() {
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteText.textContent = randomQuote;
-    quoteDisplay.classList.add('show');
-    
-    setTimeout(() => {
-      quoteDisplay.classList.remove('show');
-    }, 1500);
-  }
-
-  function draw() {
-    if (!gameRunning || paused) return;
-    
-    // Clear canvas with gradient background
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, 'rgba(10, 10, 10, 0.95)');
-    gradient.addColorStop(0.5, 'rgba(15, 15, 15, 0.95)');
-    gradient.addColorStop(1, 'rgba(10, 10, 10, 0.95)');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Draw grid
-    drawGrid();
-
-    // Move snake
-    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-    
-    // Handle boxless mode (wrap around)
-    if (mode === 'boxless') {
-      if (head.x < 0) head.x = tileCountX - 1;
-      if (head.x >= tileCountX) head.x = 0;
-      if (head.y < 0) head.y = tileCountY - 1;
-      if (head.y >= tileCountY) head.y = 0;
-    }
-    
-    snake.unshift(head);
-
-    // Check food collision
-    if (head.x === food.x && head.y === food.y) {
-      food = randomFood();
-      score++;
-      scoreEl.textContent = score;
-      
-      // Play eat sound
-      eatSound.currentTime = 0;
-      eatSound.play().catch(() => {});
-      
-      // Show quote and particles
-      showQuote();
-      createParticles(head.x, head.y);
-      
-      // Update high score
-      if (score > highScore) {
-        highScore = score;
-        localStorage.setItem("snakeHighScore", score);
-        highScoreEl.textContent = highScore;
-      }
-    } else {
-      snake.pop();
-    }
-
-    // Check collisions
-    if ((mode === 'boxed' && (head.x < 0 || head.x >= tileCountX || head.y < 0 || head.y >= tileCountY)) ||
-        snake.slice(1).some(seg => seg.x === head.x && seg.y === head.y)) {
-      gameRunning = false;
-      gameOverSound.play().catch(() => {});
-      gameOverMsg.style.display = 'block';
-      return;
-    }
-
-    // Draw food with glow effect
-    const foodX = food.x * gridSize;
-    const foodY = food.y * gridSize;
-    
-    // Glow effect
-    ctx.shadowColor = '#ffd700';
-    ctx.shadowBlur = 15;
-    
-    const foodGradient = ctx.createRadialGradient(
-      foodX + gridSize/2, foodY + gridSize/2, 0,
-      foodX + gridSize/2, foodY + gridSize/2, gridSize/2
-    );
-    foodGradient.addColorStop(0, '#ffd700');
-    foodGradient.addColorStop(0.7, '#ff8c00');
-    foodGradient.addColorStop(1, '#ff4500');
-    
-    ctx.fillStyle = foodGradient;
-    ctx.fillRect(foodX + 2, foodY + 2, gridSize - 4, gridSize - 4);
-    
-    // Reset shadow
-    ctx.shadowBlur = 0;
-
-    // Draw snake with enhanced graphics
-    for (let i = 0; i < snake.length; i++) {
-      const segment = snake[i];
-      const segmentX = segment.x * gridSize;
-      const segmentY = segment.y * gridSize;
-      
-      if (i === 0) {
-        // Head with glow effect
-        ctx.shadowColor = '#00ff7f';
-        ctx.shadowBlur = 20;
-        
-        const headGradient = ctx.createRadialGradient(
-          segmentX + gridSize/2, segmentY + gridSize/2, 0,
-          segmentX + gridSize/2, segmentY + gridSize/2, gridSize/2
-        );
-        headGradient.addColorStop(0, '#00ff7f');
-        headGradient.addColorStop(0.7, '#00cc66');
-        headGradient.addColorStop(1, '#008844');
-        
-        ctx.fillStyle = headGradient;
-        ctx.fillRect(segmentX + 1, segmentY + 1, gridSize - 2, gridSize - 2);
-        
-        // Eyes
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(segmentX + 6, segmentY + 6, 4, 4);
-        ctx.fillRect(segmentX + 15, segmentY + 6, 4, 4);
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(segmentX + 7, segmentY + 7, 2, 2);
-        ctx.fillRect(segmentX + 16, segmentY + 7, 2, 2);
-      } else {
-        // Body segments with gradient
-        ctx.shadowColor = '#00cc66';
-        ctx.shadowBlur = 10;
-        
-        const bodyGradient = ctx.createLinearGradient(
-          segmentX, segmentY, segmentX + gridSize, segmentY + gridSize
-        );
-        bodyGradient.addColorStop(0, '#00cc66');
-        bodyGradient.addColorStop(0.5, '#00aa55');
-        bodyGradient.addColorStop(1, '#008844');
-        
-        ctx.fillStyle = bodyGradient;
-        ctx.fillRect(segmentX + 2, segmentY + 2, gridSize - 4, gridSize - 4);
-      }
-    }
-    
-    // Reset shadow
-    ctx.shadowBlur = 0;
-
-    gameLoop = setTimeout(draw, speed);
-  }
-
-  function startGame() {
-    speed = parseInt(document.getElementById('difficulty').value);
-    mode = document.getElementById('mode').value;
-    popupWrapper.style.display = 'flex';
-  }
-
-  function closePopup() {
-    popupWrapper.style.display = 'none';
-    initGame();
-    draw();
-    gameSection.focus();
-  }
-  // ------------
-  document.addEventListener("DOMContentLoaded", () => {
-    const sectionPopup = document.getElementById("sectionPopup");
-    sectionPopup.classList.remove("hidden"); // show it when section loads
-  });
-
-  function closeSectionPopup() {
-    const sectionPopup = document.getElementById("sectionPopup");
-    sectionPopup.classList.add("hidden");
-  }
-
-  function setDirection(newDx, newDy) {
-    if (dx !== -newDx && dy !== -newDy) {
-      dx = newDx;
-      dy = newDy;
-    }
-  }
-
-  // Event listeners
-  gameSection.addEventListener('keydown', (e) => {
-    if (!gameRunning) return;
-
-    let handled = false;
-
-    switch (e.key.toLowerCase()) {
-      case 'arrowup':
-      case 'w':
-        setDirection(0, -1);
-        handled = true;
-        break;
-      case 'arrowdown':
-      case 's':
-        setDirection(0, 1);
-        handled = true;
-        break;
-      case 'arrowleft':
-      case 'a':
-        setDirection(-1, 0);
-        handled = true;
-        break;
-      case 'arrowright':
-      case 'd':
-        setDirection(1, 0);
-        handled = true;
-        break;
-      case 'escape':
-        paused = !paused;
-        pauseOverlay.style.display = paused ? 'block' : 'none';
-        if (!paused) draw();
-        handled = true;
-        break;
-    }
-
-    if (handled) {
-      e.preventDefault();
-    }
-  });
-</script>
+<script defer src="js/snake-game.js"></script>
 
 <section id="myr-dino-game" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 10px; font-family: 'Courier New', monospace; background: #000000;" tabindex="0">
     <div style="background: #1a1a1a; border: 2px solid #444; border-radius: 8px; overflow: hidden; position: relative;">
@@ -1362,485 +694,7 @@
         </div>
     </div>
 
-    <script>
-        (function() {
-            const canvas = document.getElementById('myrGameCanvas');
-            const ctx = canvas.getContext('2d');
-            const scoreEl = document.getElementById('myr-score');
-            const gameOverEl = document.getElementById('myr-gameOver');
-            const gameSection = document.getElementById('myr-dino-game');
-            
-            // Game state
-            let gameRunning = false;
-            let gameSpeed = 6;
-            let score = 0;
-            let highScore = 0;
-            let frameCount = 0;
-            
-            // Dino properties
-            const dino = {
-                x: 50,
-                y: 150,
-                width: 40,
-                height: 40,
-                dy: 0,
-                jumpPower: 15,
-                grounded: true,
-                ducking: false
-            };
-            
-            // Obstacles array
-            let obstacles = [];
-            let clouds = [];
-            let ground = [];
-            
-            // Input handling
-            let keys = {};
-            let touchStartY = 0;
-            let isDucking = false;
-            
-            // Initialize ground
-            for (let i = 0; i < Math.ceil(canvas.width / 20) + 1; i++) {
-                ground.push({
-                    x: i * 20,
-                    y: 180,
-                    width: 20,
-                    height: 20
-                });
-            }
-            
-            // Initialize clouds
-            for (let i = 0; i < 3; i++) {
-                clouds.push({
-                    x: Math.random() * canvas.width,
-                    y: 50 + Math.random() * 50,
-                    width: 30,
-                    height: 20
-                });
-            }
-            
-            function updateScore() {
-                frameCount++;
-                if (frameCount % 8 === 0) { // Update score every 8 frames (slower)
-                    score++;
-                    if (score > highScore) {
-                        highScore = score;
-                    }
-                    scoreEl.textContent = `HI ${highScore.toString().padStart(5, '0')} ${score.toString().padStart(5, '0')}`;
-                }
-            }
-            
-            function drawDino() {
-                ctx.fillStyle = '#4ade80'; // Green dinosaur body
-                
-                if (dino.ducking) {
-                    // Ducking dino - horizontal body
-                    ctx.fillRect(dino.x, dino.y + 25, dino.width + 10, 15); // main body
-                    
-                    // Head
-                    ctx.fillRect(dino.x + 35, dino.y + 15, 20, 20);
-                    ctx.fillRect(dino.x + 45, dino.y + 10, 12, 10); // snout
-                    
-                    // Ducking legs
-                    ctx.fillRect(dino.x + 8, dino.y + 35, 6, 8);
-                    ctx.fillRect(dino.x + 20, dino.y + 35, 6, 8);
-                    
-                    // Tail while ducking
-                    ctx.fillRect(dino.x - 8, dino.y + 28, 15, 8);
-                    
-                    // Eye
-                    ctx.fillStyle = '#000';
-                    ctx.fillRect(dino.x + 48, dino.y + 18, 3, 3);
-                    
-                    // Nostril
-                    ctx.fillRect(dino.x + 52, dino.y + 15, 2, 2);
-                    
-                } else {
-                    // Standing/jumping dino
-                    // Main body
-                    ctx.fillRect(dino.x + 10, dino.y + 10, 20, 25);
-                    
-                    // Head
-                    ctx.fillRect(dino.x + 25, dino.y - 5, 18, 18);
-                    ctx.fillRect(dino.x + 35, dino.y - 2, 10, 8); // snout
-                    
-                    // Neck
-                    ctx.fillRect(dino.x + 22, dino.y + 5, 8, 10);
-                    
-                    // Tail
-                    ctx.fillRect(dino.x - 2, dino.y + 15, 15, 8);
-                    ctx.fillRect(dino.x - 8, dino.y + 18, 10, 5);
-                    
-                    // Animated legs
-                    const legOffset = Math.floor(frameCount / 15) % 2 === 0 ? 0 : 3;
-                    const legOffset2 = Math.floor(frameCount / 15) % 2 === 0 ? 3 : 0;
-                    
-                    // Back leg
-                    ctx.fillRect(dino.x + 12, dino.y + 35, 6, 12 + legOffset);
-                    ctx.fillRect(dino.x + 10, dino.y + 45 + legOffset, 10, 4); // back foot
-                    
-                    // Front leg
-                    ctx.fillRect(dino.x + 22, dino.y + 35, 6, 12 + legOffset2);
-                    ctx.fillRect(dino.x + 20, dino.y + 45 + legOffset2, 10, 4); // front foot
-                    
-                    // Arms (small)
-                    ctx.fillRect(dino.x + 30, dino.y + 12, 3, 8);
-                    ctx.fillRect(dino.x + 30, dino.y + 18, 6, 3);
-                    
-                    // Eye
-                    ctx.fillStyle = '#000';
-                    ctx.fillRect(dino.x + 38, dino.y + 2, 4, 4);
-                    
-                    // Nostril
-                    ctx.fillRect(dino.x + 42, dino.y + 2, 2, 2);
-                    
-                    // Belly detail
-                    ctx.fillStyle = '#86efac';
-                    ctx.fillRect(dino.x + 12, dino.y + 15, 16, 15);
-                    
-                    // Back spikes
-                    ctx.fillStyle = '#22c55e';
-                    ctx.fillRect(dino.x + 15, dino.y + 8, 3, 6);
-                    ctx.fillRect(dino.x + 20, dino.y + 6, 3, 6);
-                    ctx.fillRect(dino.x + 25, dino.y + 8, 3, 6);
-                }
-                
-                // Add some texture spots
-                ctx.fillStyle = '#22c55e';
-                if (!dino.ducking) {
-                    ctx.fillRect(dino.x + 15, dino.y + 20, 2, 2);
-                    ctx.fillRect(dino.x + 20, dino.y + 25, 2, 2);
-                    ctx.fillRect(dino.x + 28, dino.y + 0, 2, 2);
-                }
-            }
-            
-            function drawObstacles() {
-                obstacles.forEach(obstacle => {
-                    if (obstacle.type === 'cactus') {
-                        // More detailed cactus
-                        ctx.fillStyle = '#22c55e'; // Green cactus
-                        
-                        // Main trunk
-                        ctx.fillRect(obstacle.x + 5, obstacle.y, obstacle.width - 10, obstacle.height);
-                        
-                        // Left arm
-                        ctx.fillRect(obstacle.x, obstacle.y + 15, 12, 8);
-                        ctx.fillRect(obstacle.x + 2, obstacle.y + 8, 8, 15);
-                        
-                        // Right arm
-                        ctx.fillRect(obstacle.x + obstacle.width - 8, obstacle.y + 20, 12, 8);
-                        ctx.fillRect(obstacle.x + obstacle.width - 6, obstacle.y + 12, 8, 16);
-                        
-                        // Cactus spines
-                        ctx.fillStyle = '#15803d';
-                        for(let i = 0; i < 5; i++) {
-                            ctx.fillRect(obstacle.x + 8, obstacle.y + 5 + (i * 8), 1, 3);
-                            ctx.fillRect(obstacle.x + 12, obstacle.y + 8 + (i * 8), 1, 3);
-                        }
-                        
-                        // Flower on top
-                        ctx.fillStyle = '#f97316';
-                        ctx.fillRect(obstacle.x + 7, obstacle.y - 3, 6, 4);
-                        
-                    } else if (obstacle.type === 'bird') {
-                        // More detailed pterodactyl
-                        ctx.fillStyle = '#94a3b8'; // Gray pterodactyl
-                        
-                        // Body
-                        ctx.fillRect(obstacle.x + 10, obstacle.y + 8, 12, 8);
-                        
-                        // Head/beak
-                        ctx.fillRect(obstacle.x + 18, obstacle.y + 6, 8, 6);
-                        ctx.fillRect(obstacle.x + 22, obstacle.y + 8, 6, 2); // beak
-                        
-                        // Wing animation
-                        const wingFlap = Math.floor(frameCount / 12) % 2;
-                        if (wingFlap === 0) {
-                            // Wings up
-                            ctx.fillRect(obstacle.x, obstacle.y + 2, 15, 4);
-                            ctx.fillRect(obstacle.x + 15, obstacle.y, 10, 8);
-                        } else {
-                            // Wings down
-                            ctx.fillRect(obstacle.x, obstacle.y + 12, 15, 4);
-                            ctx.fillRect(obstacle.x + 15, obstacle.y + 8, 10, 8);
-                        }
-                        
-                        // Tail
-                        ctx.fillRect(obstacle.x + 5, obstacle.y + 10, 8, 3);
-                        
-                        // Eye
-                        ctx.fillStyle = '#000';
-                        ctx.fillRect(obstacle.x + 20, obstacle.y + 7, 2, 2);
-                        
-                        // Wing membrane details
-                        ctx.fillStyle = '#64748b';
-                        if (wingFlap === 0) {
-                            ctx.fillRect(obstacle.x + 2, obstacle.y + 3, 8, 2);
-                        } else {
-                            ctx.fillRect(obstacle.x + 2, obstacle.y + 13, 8, 2);
-                        }
-                    }
-                });
-            }
-            
-            function drawClouds() {
-                ctx.fillStyle = '#6b7280'; // More realistic cloud color
-                clouds.forEach(cloud => {
-                    // More puffy, realistic clouds
-                    ctx.fillRect(cloud.x + 5, cloud.y + 5, cloud.width - 10, cloud.height - 6);
-                    ctx.fillRect(cloud.x, cloud.y + 8, cloud.width, cloud.height - 8);
-                    ctx.fillRect(cloud.x + 8, cloud.y, cloud.width - 16, cloud.height - 5);
-                    ctx.fillRect(cloud.x + 12, cloud.y + 2, cloud.width - 20, cloud.height - 8);
-                    
-                    // Cloud highlights
-                    ctx.fillStyle = '#9ca3af';
-                    ctx.fillRect(cloud.x + 8, cloud.y + 3, cloud.width - 20, 3);
-                    ctx.fillRect(cloud.x + 3, cloud.y + 9, cloud.width - 12, 2);
-                    
-                    ctx.fillStyle = '#6b7280'; // Reset color for next cloud
-                });
-            }
-            
-            function drawGround() {
-                // More detailed ground
-                ctx.fillStyle = '#8b5cf6'; // Purple ground base
-                ctx.fillRect(0, 180, canvas.width, 20);
-                
-                // Ground texture and rocks
-                ctx.fillStyle = '#7c3aed';
-                ground.forEach((g, index) => {
-                    // Alternating ground pattern
-                    if (index % 3 === 0) {
-                        ctx.fillRect(g.x, g.y + 2, 3, 2);
-                    } else if (index % 5 === 0) {
-                        ctx.fillRect(g.x + 5, g.y + 1, 2, 3);
-                    }
-                    
-                    // Small rocks scattered
-                    if (index % 7 === 0) {
-                        ctx.fillStyle = '#6366f1';
-                        ctx.fillRect(g.x + 2, g.y - 2, 4, 3);
-                        ctx.fillRect(g.x + 8, g.y - 1, 3, 2);
-                        ctx.fillStyle = '#7c3aed';
-                    }
-                });
-                
-                // Ground line detail
-                ctx.fillStyle = '#6d28d9';
-                ctx.fillRect(0, 179, canvas.width, 1);
-            }
-            
-            function updateDino() {
-                if (keys['Space'] || keys['ArrowUp']) {
-                    if (dino.grounded) {
-                        dino.dy = -dino.jumpPower;
-                        dino.grounded = false;
-                    }
-                }
-                
-                dino.ducking = keys['ArrowDown'] || isDucking;
-                
-                if (!dino.grounded) {
-                    dino.dy += 0.8; // gravity
-                    dino.y += dino.dy;
-                }
-                
-                if (dino.y >= 150) {
-                    dino.y = 150;
-                    dino.grounded = true;
-                    dino.dy = 0;
-                }
-            }
-            
-            function updateObstacles() {
-                // Move obstacles
-                obstacles.forEach(obstacle => {
-                    obstacle.x -= gameSpeed;
-                });
-                
-                // Remove off-screen obstacles
-                obstacles = obstacles.filter(obstacle => obstacle.x > -obstacle.width);
-                
-                // Add new obstacles
-                if (obstacles.length === 0 || obstacles[obstacles.length - 1].x < canvas.width - 200 - Math.random() * 200) {
-                    const types = ['cactus', 'bird'];
-                    const type = types[Math.floor(Math.random() * types.length)];
-                    
-                    obstacles.push({
-                        x: canvas.width,
-                        y: type === 'bird' ? 100 + Math.random() * 50 : 140,
-                        width: type === 'bird' ? 30 : 20,
-                        height: type === 'bird' ? 20 : 50,
-                        type: type
-                    });
-                }
-            }
-            
-            function updateClouds() {
-                clouds.forEach(cloud => {
-                    cloud.x -= gameSpeed * 0.3;
-                    if (cloud.x < -cloud.width) {
-                        cloud.x = canvas.width;
-                        cloud.y = 50 + Math.random() * 50;
-                    }
-                });
-            }
-            
-            function updateGround() {
-                ground.forEach(g => {
-                    g.x -= gameSpeed;
-                    if (g.x < -g.width) {
-                        g.x = canvas.width;
-                    }
-                });
-            }
-            
-            function checkCollisions() {
-                const dinoRect = {
-                    x: dino.x + 5,
-                    y: dino.ducking ? dino.y + 20 : dino.y,
-                    width: dino.width - 10,
-                    height: dino.ducking ? dino.height - 20 : dino.height
-                };
-                
-                return obstacles.some(obstacle => {
-                    return dinoRect.x < obstacle.x + obstacle.width - 5 &&
-                           dinoRect.x + dinoRect.width > obstacle.x + 5 &&
-                           dinoRect.y < obstacle.y + obstacle.height - 5 &&
-                           dinoRect.y + dinoRect.height > obstacle.y + 5;
-                });
-            }
-            
-            function gameLoop() {
-                if (!gameRunning) return;
-                
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                updateDino();
-                updateObstacles();
-                updateClouds();
-                updateGround();
-                
-                drawClouds();
-                drawGround();
-                drawDino();
-                drawObstacles();
-                
-                if (checkCollisions()) {
-                    gameOver();
-                    return;
-                }
-                
-                // Update score continuously
-                updateScore();
-                
-                // Increase speed every 150 points (slower progression)
-                if (score % 150 === 0 && score > 0) {
-                    gameSpeed += 0.03; // Smaller speed increases
-                }
-                
-                requestAnimationFrame(gameLoop);
-            }
-            
-            function gameOver() {
-                gameRunning = false;
-                gameOverEl.style.display = 'block';
-            }
-            
-            function startGame() {
-                gameRunning = true;
-                gameSpeed = 4; // Reduced starting speed
-                score = 0;
-                frameCount = 0;
-                obstacles = [];
-                dino.y = 150;
-                dino.dy = 0;
-                dino.grounded = true;
-                dino.ducking = false;
-                gameOverEl.style.display = 'none';
-                scoreEl.textContent = `HI ${highScore.toString().padStart(5, '0')} ${score.toString().padStart(5, '0')}`;
-                gameLoop();
-            }
-            
-            function restartGame() {
-                startGame();
-            }
-            
-            // FOCUSED EVENT LISTENERS - Only work when game section is focused
-            gameSection.addEventListener('keydown', (e) => {
-                keys[e.code] = true;
-                if ((e.code === 'Space' || e.code === 'ArrowUp') && !gameRunning) {
-                    startGame();
-                }
-                e.preventDefault();
-            });
-            
-            gameSection.addEventListener('keyup', (e) => {
-                keys[e.code] = false;
-            });
-            
-            // Auto-focus when clicking on the game area
-            gameSection.addEventListener('click', () => {
-                gameSection.focus();
-            });
-            
-            // Touch events for mobile - Enhanced responsiveness
-            canvas.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                touchStartY = e.touches[0].clientY;
-                gameSection.focus(); // Focus the game section on touch
-                if (!gameRunning) {
-                    startGame();
-                } else {
-                    keys['Space'] = true;
-                }
-            });
-            
-            canvas.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                keys['Space'] = false;
-                isDucking = false;
-            });
-            
-            canvas.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                const touchY = e.touches[0].clientY;
-                const touchDiff = touchY - touchStartY;
-                if (touchDiff > 30) { // Increased sensitivity threshold
-                    isDucking = true;
-                    keys['Space'] = false;
-                } else if (touchDiff < -30) {
-                    isDucking = false;
-                    keys['Space'] = true;
-                }
-            });
-            
-            // Handle game over screen touches
-            gameOverEl.addEventListener('click', () => {
-                gameSection.focus();
-                restartGame();
-            });
-            gameOverEl.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                gameSection.focus();
-                restartGame();
-            });
-            
-            // Initialize
-            scoreEl.textContent = `HI ${highScore.toString().padStart(5, '0')} ${score.toString().padStart(5, '0')}`;
-            
-            // Auto-focus on load for better accessibility
-            setTimeout(() => {
-                gameSection.focus();
-            }, 100);
-            
-            // Draw initial state
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawClouds();
-            drawGround();
-            drawDino();
-        })();
-    </script>
+    <script defer src="js/dino-game.js"></script>
 </section>
 
 
@@ -1853,7 +707,7 @@
     <blockquote id="funny-quote-box" style="font-size: 1.25rem; font-style: italic; color: #eee; max-width: 700px; margin: 0 auto; line-height: 1.6;"></blockquote>
   </section>
   
-  <script src="js/quotes.js"></script>
+  <script defer src="js/quotes.js"></script>
   
 
   
@@ -1865,7 +719,7 @@
     </div>
 
     <div class="contact-center container">
-      <div class="left" data-aos="fade-dowm" data-aos-duration="1500">
+      <div class="left" data-aos="fade-down" data-aos-duration="1500">
         <h2>Get In Touch</h2>
         <p>
           Hi, Have a great day :) I am here to help you. If you want to know something or you have any
@@ -1896,11 +750,11 @@
         </div>
 
         <div class="icons1234">
-          <span><a href="https://www.github.com/eyesnydh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></span>
-          <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></span>
-          <!-- <span><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></span> -->
-          <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></span>
-          <!-- <span><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></span> -->
+          <span><a href="https://www.github.com/eyesnydh" target="_blank" rel="noopener noreferrer" aria-label="github"><i class="fab fa-github"></i></a></span>
+          <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" target="_blank" rel="noopener noreferrer" aria-label="linkedin"><i class="fab fa-linkedin"></i></a></span>
+          <!-- <span><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="facebook"><i class="fab fa-facebook"></i></a></span> -->
+          <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer" aria-label="instagram"><i class="fab fa-instagram"></i></a></span>
+          <!-- <span><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="youtube"><i class="fab fa-youtube"></i></a></span> -->
         </div>
         
 
@@ -1929,29 +783,29 @@
 
   <!-- Scripts -->
   <!-- AOS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <!-- TypeIt -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
   <!-- Glidejs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   <!-- Custom Script -->
-  <script src="index.js"></script>
+  <script defer src="index.js"></script>
   <!-- <script type="text/javascript" src="./asteroids.js"></script> -->
 
 
 
 
-  <script src="js/interactions.js"></script>
-  <script src="js/loader.js"></script>
-<script src="js/about-dialog.js"></script>
+  <script defer src="js/interactions.js"></script>
+  <script defer src="js/loader.js"></script>
+<script defer src="js/about-dialog.js"></script>
  
 <!-- Lucide icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="js/icons.js"></script>
-<script src="js/social-icons.js"></script>
-<script src="js/project-filter.js"></script>
+<script defer src="https://unpkg.com/lucide@latest"></script>
+<script defer src="js/icons.js"></script>
+<script defer src="js/social-icons.js"></script>
+<script defer src="js/project-filter.js"></script>
 
 
 

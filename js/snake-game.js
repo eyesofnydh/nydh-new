@@ -18,6 +18,8 @@ const canvas = document.getElementById('gameCanvas');
 
   let snake, dx, dy, food, score, highScore, gameRunning, speed, gameLoop, paused, mode;
   let directionChanged = false;
+  let quoteTimer;
+  const pauseButton = document.getElementById('snake-pause');
   const readScore = () => { try { return Math.max(0, parseInt(localStorage.getItem("snakeHighScore"), 10) || 0); } catch { return 0; } };
 
   // Motivational quotes for eating food
@@ -40,6 +42,7 @@ const canvas = document.getElementById('gameCanvas');
 ];
 
   function initGame() {
+    clearTimeout(quoteTimer);
     snake = [{ x: Math.floor(tileCountX/2), y: Math.floor(tileCountY/2) }];
     dx = 1;
     dy = 0;
@@ -50,6 +53,8 @@ const canvas = document.getElementById('gameCanvas');
     highScoreEl.textContent = highScore;
     gameRunning = true;
     paused = false;
+    pauseButton.setAttribute('aria-pressed', 'false');
+    pauseButton.setAttribute('aria-label', 'Pause game');
     gameOverMsg.style.display = 'none';
     pauseOverlay.style.display = 'none';
     quoteDisplay.classList.remove('show');
@@ -93,8 +98,8 @@ const canvas = document.getElementById('gameCanvas');
     for (let i = 0; i < 8; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
-      particle.style.left = (x * gridSize + gridSize/2) + 'px';
-      particle.style.top = (y * gridSize + gridSize/2) + 'px';
+      particle.style.left = ((x * gridSize + gridSize/2) / canvas.width * 100) + '%';
+      particle.style.top = ((y * gridSize + gridSize/2) / canvas.height * 100) + '%';
       particle.style.width = '6px';
       particle.style.height = '6px';
       particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
@@ -109,11 +114,12 @@ const canvas = document.getElementById('gameCanvas');
   }
 
   function showQuote() {
+    clearTimeout(quoteTimer);
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     quoteText.textContent = randomQuote;
     quoteDisplay.classList.add('show');
 
-    setTimeout(() => {
+    quoteTimer = setTimeout(() => {
       quoteDisplay.classList.remove('show');
     }, 1500);
   }
@@ -268,6 +274,7 @@ const canvas = document.getElementById('gameCanvas');
     speed = parseInt(document.getElementById('difficulty').value);
     mode = document.getElementById('mode').value;
     popupWrapper.style.display = 'flex';
+    popupWrapper.querySelector('button').focus({ preventScroll: true });
   }
 
   function closePopup() {
@@ -276,26 +283,41 @@ const canvas = document.getElementById('gameCanvas');
     popupWrapper.style.display = 'none';
     initGame();
     draw();
-    gameSection.focus();
+    gameSection.focus({ preventScroll: true });
   }
-  // ------------
-  document.addEventListener("DOMContentLoaded", () => {
-    const sectionPopup = document.getElementById("sectionPopup");
-    if (sectionPopup) sectionPopup.classList.remove("hidden"); // show it when section loads
-  });
-
-  function closeSectionPopup() {
-    const sectionPopup = document.getElementById("sectionPopup");
-    if (sectionPopup) sectionPopup.classList.add("hidden");
-  }
-
   function setDirection(newDx, newDy) {
+    if (!gameRunning || paused) return;
     if (!directionChanged && !(dx === -newDx && dy === -newDy)) {
       directionChanged = true;
       dx = newDx;
       dy = newDy;
     }
   }
+
+  function togglePause(forcePause = false) {
+    if (!gameRunning || (forcePause && paused)) return;
+    clearTimeout(gameLoop);
+    paused = forcePause || !paused;
+    pauseOverlay.style.display = paused ? 'block' : 'none';
+    pauseButton.setAttribute('aria-pressed', String(paused));
+    pauseButton.setAttribute('aria-label', paused ? 'Resume game' : 'Pause game');
+    if (!paused) draw();
+  }
+  pauseButton.addEventListener('click', () => togglePause());
+  document.querySelectorAll('[data-snake-start]').forEach(button => button.addEventListener('click', startGame));
+  document.querySelectorAll('[data-snake-begin]').forEach(button => button.addEventListener('click', closePopup));
+  const directions = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+  document.querySelectorAll('[data-direction]').forEach(button => {
+    button.addEventListener('click', () => setDirection(...directions[button.dataset.direction]));
+  });
+  window.addEventListener('blur', () => togglePause(true));
+  document.addEventListener('visibilitychange', () => { if (document.hidden) togglePause(true); });
+  gameSection.addEventListener('focusout', event => {
+    if (!gameSection.contains(event.relatedTarget)) togglePause(true);
+  });
+  // Draw a static board on load; games only run after a deliberate start.
+  highScoreEl.textContent = readScore();
+  drawGrid();
 
   // Event listeners
   gameSection.addEventListener('keydown', (e) => {
@@ -326,10 +348,7 @@ const canvas = document.getElementById('gameCanvas');
         break;
       case 'escape':
         if (e.repeat) break;
-        clearTimeout(gameLoop);
-        paused = !paused;
-        pauseOverlay.style.display = paused ? 'block' : 'none';
-        if (!paused) draw();
+        togglePause();
         handled = true;
         break;
     }
@@ -339,6 +358,4 @@ const canvas = document.getElementById('gameCanvas');
     }
   });
 
-window.startGame = startGame;
-window.closePopup = closePopup;
 })();

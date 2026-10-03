@@ -10,6 +10,9 @@
             let gameSpeed = 6;
             let score = 0;
             let highScore = 0;
+            try { highScore = Math.max(0, Number(localStorage.getItem('dinoHighScore')) || 0); } catch {}
+            let frameId;
+            let lastFrame = 0;
             let frameCount = 0;
 
             // Dino properties
@@ -346,8 +349,14 @@
                 });
             }
 
-            function gameLoop() {
+            function gameLoop(time = 0) {
                 if (!gameRunning) return;
+                // Keep physics consistent on 60/120/144 Hz screens.
+                if (time && time - lastFrame < 1000 / 60 - 1) {
+                    frameId = requestAnimationFrame(gameLoop);
+                    return;
+                }
+                lastFrame = time;
 
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -374,16 +383,19 @@
                     gameSpeed += 0.03; // Smaller speed increases
                 }
 
-                requestAnimationFrame(gameLoop);
+                frameId = requestAnimationFrame(gameLoop);
             }
 
             function gameOver() {
                 gameRunning = false;
+                cancelAnimationFrame(frameId);
+                try { localStorage.setItem('dinoHighScore', highScore); } catch {}
                 gameOverEl.style.display = 'block';
             }
 
             function startGame() {
                 if (gameRunning) return;
+                lastFrame = 0;
                 gameRunning = true;
                 gameSpeed = 4; // Reduced starting speed
                 score = 0;
@@ -404,6 +416,7 @@
 
             // FOCUSED EVENT LISTENERS - Only work when game section is focused
             gameSection.addEventListener('keydown', (e) => {
+                if (!['Space', 'ArrowUp', 'ArrowDown'].includes(e.code) || /BUTTON|INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
                 keys[e.code] = true;
                 if ((e.code === 'Space' || e.code === 'ArrowUp') && !gameRunning) {
                     startGame();
@@ -417,14 +430,14 @@
 
             // Auto-focus when clicking on the game area
             gameSection.addEventListener('click', () => {
-                gameSection.focus();
+                gameSection.focus({ preventScroll: true });
             });
 
             // Touch events for mobile - Enhanced responsiveness
             canvas.addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 touchStartY = e.touches[0].clientY;
-                gameSection.focus(); // Focus the game section on touch
+                gameSection.focus({ preventScroll: true });
                 if (!gameRunning) {
                     startGame();
                 } else {
@@ -453,12 +466,12 @@
 
             // Handle game over screen touches
             gameOverEl.addEventListener('click', () => {
-                gameSection.focus();
+                gameSection.focus({ preventScroll: true });
                 restartGame();
             });
             gameOverEl.addEventListener('touchstart', (e) => {
                 e.preventDefault();
-                gameSection.focus();
+                gameSection.focus({ preventScroll: true });
                 restartGame();
             });
 
@@ -468,6 +481,13 @@
             gameSection.addEventListener('blur', () => {
                 Object.keys(keys).forEach(key => keys[key] = false);
                 isDucking = false;
+            });
+            canvas.addEventListener('touchcancel', () => {
+                keys['Space'] = false;
+                isDucking = false;
+            });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && gameRunning) gameOver();
             });
 
             // Draw initial state
