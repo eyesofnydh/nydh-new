@@ -511,8 +511,8 @@ li {
   width: 100%;
   min-height: auto;
   background-color: rgb(0 0 19 / 0%);
-  z-index: 3;
-  overflow: hidden;
+  z-index: 101;
+  overflow: visible;
   top: 0;
 }
 .hero-banner {

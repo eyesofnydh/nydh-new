@@ -13,7 +13,8 @@ window.addEventListener("scroll", () => {
 
 // Smooth Scroll Function
 function smoothScroll(target, duration) {
-  const targetElement = document.querySelector(target);
+  const targetElement = document.getElementById(target.slice(1));
+  if (!targetElement) return;
   const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
@@ -22,7 +23,7 @@ function smoothScroll(target, duration) {
   function animation(currentTime) {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
-    const run = ease(timeElapsed, startPosition, distance, duration);
+    const run = ease(Math.min(timeElapsed, duration), startPosition, distance, duration);
     window.scrollTo(0, run);
     if (timeElapsed < duration) requestAnimationFrame(animation);
   }
@@ -41,8 +42,10 @@ function smoothScroll(target, duration) {
 // Smooth Scroll for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
     const target = this.getAttribute('href');
+    if (!target || target === '#' || !document.getElementById(target.slice(1))) return;
+    e.preventDefault();
+    setMenuOpen(false);
     smoothScroll(target, 100); // Adjust duration as needed
   });
 });
@@ -53,21 +56,23 @@ const menu = document.querySelector(".menu");
 const navOpen = document.querySelector(".hamburger");
 const navClose = document.querySelector(".close");
 
-const navLeft = menu.getBoundingClientRect().left;
-navOpen.addEventListener("click", () => {
-  if (navLeft < 0) {
-    menu.classList.add("show");
-    document.body.classList.add("show");
-    navBar.classList.add("show");
+function setMenuOpen(open) {
+  [menu, document.body, navBar].forEach(element => element.classList.toggle('show', open));
+  navOpen.setAttribute('aria-expanded', String(open));
+}
+navOpen.addEventListener('click', () => setMenuOpen(true));
+navClose.addEventListener('click', () => setMenuOpen(false));
+[navOpen, navClose].forEach(control => control.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    control.click();
   }
+}));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') setMenuOpen(false);
 });
-
-navClose.addEventListener("click", () => {
-  if (navLeft < 0) {
-    menu.classList.remove("show");
-    document.body.classList.remove("show");
-    navBar.classList.remove("show");
-  }
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) setMenuOpen(false);
 });
 
 
@@ -75,7 +80,7 @@ navClose.addEventListener("click", () => {
 
 const glide = document.querySelector(".glide");
 
-if (glide)
+if (glide && window.Glide)
   new Glide(glide, {
     type: "carousel",
     startAt: 0,
@@ -95,9 +100,13 @@ if (glide)
     },
   }).mount();
 
-AOS.init();
+if (window.AOS) AOS.init();
+else document.querySelectorAll('[data-aos]').forEach(element => {
+  element.style.opacity = '1';
+  element.style.transform = 'none';
+});
 
-new TypeIt("#type1", {
+if (window.TypeIt) new TypeIt("#type1", {
   speed: 120,
   loop: true,
   waitUntilVisible: true,
@@ -110,7 +119,7 @@ new TypeIt("#type1", {
   .delete(18)
   .go();
 
-new TypeIt("#type2", {
+if (window.TypeIt) new TypeIt("#type2", {
   speed: 120,
   loop: true,
   waitUntilVisible: true,
@@ -125,6 +134,7 @@ new TypeIt("#type2", {
 
 
 
+if (window.gsap) {
 gsap.from(".logo", { opacity: 0, duration: 1, delay: 0.5, y: -10 });
 gsap.from(".hamburger", { opacity: 0, duration: 1, delay: 0.8, x: 20 });
 gsap.from(".banner", { opacity: 0, duration: 1, delay: 1.1, x: -200 });
@@ -148,6 +158,7 @@ gsap.from(".icons span", {
   x: -30,
   stagger: 0.2,
 });
+}
 
-   
-  
+
+

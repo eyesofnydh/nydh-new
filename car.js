@@ -1,4 +1,7 @@
- const canvas = document.getElementById("gameCanvas");
+(function () {
+ // This optional prototype must never take over another game's canvas.
+ const canvas = document.getElementById("carCanvas");
+ if (!canvas) return;
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -36,10 +39,10 @@
 
         if (isAccelerating) {
           this.speed += this.acceleration;
-          if (engineSound.paused) engineSound.play();
+          if (engineSound && engineSound.paused) engineSound.play().catch(() => {});
         } else {
           this.speed *= 1 - this.friction;
-          engineSound.pause();
+          if (engineSound) engineSound.pause();
         }
 
         if (keys["s"] || keys["ArrowDown"]) {
@@ -124,7 +127,7 @@
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
 
-        if (carImage.complete) {
+        if (carImage.complete && carImage.naturalWidth > 0) {
           this.drawCarImage();
         }
 
@@ -149,10 +152,19 @@
 
     window.addEventListener('keydown', e => {
       keys[e.key] = true;
-      if (e.key === ' ') {
+      if (e.key === ' ' && hornSound) {
         hornSound.currentTime = 0;
-        hornSound.play();
+        hornSound.play().catch(() => {});
       }
     });
 
     window.addEventListener('keyup', e => keys[e.key] = false);
+    window.addEventListener('blur', () => {
+      Object.keys(keys).forEach(key => keys[key] = false);
+      if (engineSound) engineSound.pause();
+    });
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+})();
