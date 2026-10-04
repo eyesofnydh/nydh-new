@@ -3,6 +3,12 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
+for (const entry of ['index.html', 'index.js', 'style.css', 'package.json', 'netlify.toml', ...fs.readdirSync(path.join(root, 'css')).map(name => `css/${name}`), ...fs.readdirSync(path.join(root, 'js')).map(name => `js/${name}`)]) {
+  if (/^(<<<<<<<|=======|>>>>>>>)\s/m.test(fs.readFileSync(path.join(root, entry), 'utf8'))) {
+    throw new Error(`Unresolved merge conflict in ${entry}`);
+  }
+}
+JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const source = html.replace(/<!--[\s\S]*?-->/g, '');
 if (/<script\s*>|<style\s*>/.test(source)) throw new Error('Keep scripts and styles in their maintained files.');

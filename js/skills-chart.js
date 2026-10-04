@@ -20,7 +20,7 @@ let chart;
 
               if (!chart.customImage) {
                 chart.customImage = chart.renderer
-                  .image('./images/nidhiHead.png', cx, cy, 70, 70)
+                  .image('./images/optimized/nidhiHead.webp', cx, cy, 70, 70)
                   .add();
               } else {
                 chart.customImage.attr({ x: cx, y: cy });

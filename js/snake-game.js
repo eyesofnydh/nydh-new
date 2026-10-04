@@ -58,6 +58,7 @@ const canvas = document.getElementById('gameCanvas');
     gameOverMsg.style.display = 'none';
     pauseOverlay.style.display = 'none';
     quoteDisplay.classList.remove('show');
+    quoteText.textContent = 'Collect an orb. Keep the streak going.';
   }
 
   function randomFood() {

@@ -11,7 +11,7 @@
     content="Nidhin Narayanan, Software Developer, QA,Automation,manual testing Cybersecurity">
   <title>Nidhin Narayanan - Portfolio</title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="images/nidhiHead.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/optimized/favicon.png" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <!-- AOS -->
@@ -92,9 +92,9 @@
     <a href="https://eyesofnydh.netlify.app/" target="_blank" rel="noopener noreferrer">
       <img 
         class="character" 
-        src="images/Picsart_25-04-24_20-42-39-557.png"
+        src="images/optimized/Picsart-25-04-24-20-42-39-557.webp"
         alt="Peeking Character"
-        id="peekImage">
+        id="peekImage" width="1000" height="1000" decoding="async" loading="lazy">
     </a>
     <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
   </div>
@@ -118,7 +118,7 @@
   <div class="side-text right-text">&lt;coder&gt;<br></div>
   <div class="side-text right1">noobie<br></div>
     <!-- Hero  -->
-    <img src="images/nydh-new.png" alt="Character" class="character1">
+    <img src="images/optimized/nydh-new.webp" alt="Character" class="character1" width="1800" height="1800" decoding="async" fetchpriority="high">
 
     <!-- <div class="hero">
       <h3>Hello, my name is</h3>
@@ -146,7 +146,7 @@
 
     <div class="about-center container">
       <div class="left" data-aos="fade-right" data-aos-duration="1500">
-        <img src="./images/about1.png" alt="" />
+        <img src="images/optimized/about1.webp" alt="" width="1000" height="1000" decoding="async" loading="lazy">
       </div>
       <div class="right" data-aos="fade-left" data-aos-duration="1500">
         <h1>I'm Nidhin a <span id="type2" class="typeit">Quality Analyst</span></h1>
@@ -189,7 +189,7 @@
 
         <!-- <div class="box123-section">
           <h4>🎨 Snapshot</h4>
-          <img src="images/nidhi.png" alt="Nidhin's Profile Visual" style="width:100%; border-radius: 10px; margin-top: 10px;" />
+          <img src="images/optimized/nidhi.webp" alt="Nidhin's Profile Visual" style="width:100%; border-radius: 10px; margin-top: 10px;" width="876" height="1000" decoding="async" loading="lazy">
         </div> -->
 
         <div class="box123-section">
@@ -305,7 +305,7 @@
       </div>
       <div class="header-content">
         <h2 class="guestbook-title">📖 Guestbook</h2>
-        <p class="guestbook-subtitle">Share your thoughts!</p>
+        <p class="guestbook-subtitle">Leave a little hello. Make yourself at home.</p>
       </div>
       <div class="message-counter">
         <span id="message-count">0</span> messages
@@ -313,7 +313,11 @@
     </div>
 
     <!-- Form -->
-    <form id="guestbook-form" class="guestbook-form">
+    <form id="guestbook-form" class="guestbook-form" aria-describedby="guestbook-note">
+      <p id="guestbook-note" class="guestbook-note">Your name, message, and reaction will be public. Nidhin receives an email notification.</p>
+      <div class="guestbook-honeypot" aria-hidden="true">
+        <label>Leave this blank <input name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
       <div class="form-row">
         <div class="input-group">
           <input type="text" id="author-name" aria-label="Your name" maxlength="100" placeholder="Your name (optional)" class="form-input">
@@ -322,6 +326,7 @@
       
       <div class="input-group">
         <textarea id="message-text" aria-label="Guestbook message" maxlength="2000" placeholder="Leave a message..." required class="form-textarea"></textarea>
+        <div class="guestbook-counter"><span id="guestbook-character-count">0</span> / 2,000</div>
       </div>
       
       <div class="reactions-container">
@@ -350,17 +355,20 @@
       </div>
       
       <button type="submit" class="submit-btn">
-        <span>Submit</span>
+        <span>Post your message</span>
       </button>
+      <p id="guestbook-status" class="guestbook-status" role="status" aria-live="polite"></p>
     </form>
 
     <!-- Messages -->
     <div class="messages-section">
+      <div class="guestbook-feed-header"><h3>Visitor notes</h3><button id="guestbook-refresh" type="button">Refresh</button></div>
       <ul id="messages" class="messages-list"></ul>
       <div id="no-messages" class="no-messages">
         <div class="no-messages-icon">💬</div>
-        <p>No messages yet. Be the first to leave a message!</p>
+        <p>Loading visitor notes…</p>
       </div>
+      <button id="guestbook-more" type="button" hidden>Show more notes</button>
     </div>
   </div>
 </section>
@@ -381,7 +389,7 @@
       <div class="portfolios">
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (1).jpg" alt="">
+                  <img src="images/optimized/pic--1.webp" alt="" width="630" height="416" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>Block Ballet</h3>
@@ -395,7 +403,7 @@
           </div>
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (4).jpg" alt="">
+                  <img src="images/optimized/pic--4.webp" alt="" width="1000" height="666" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>Handrix</h3>
@@ -408,7 +416,7 @@
           </div>
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (6).jpg" alt="">
+                  <img src="images/optimized/pic--6.webp" alt="" width="640" height="640" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>Fit-Track</h3>
@@ -422,7 +430,7 @@
           </div>
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (2).jpg" alt="">
+                  <img src="images/optimized/pic--2.webp" alt="" width="1000" height="783" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>Portifolio</h3>
@@ -436,7 +444,7 @@
           </div>
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (3).jpg" alt="">
+                  <img src="images/optimized/pic--3.webp" alt="" width="630" height="416" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>House Price Prediction</h3>
@@ -450,7 +458,7 @@
           </div>
           <div class="portfolio-item" tabindex="0">
               <div class="image">
-                  <img src="images/pic (5).jpg" alt="">
+                  <img src="images/optimized/pic--5.webp" alt="" width="1000" height="660" decoding="async" loading="lazy">
               </div>
               <div class="hover-items">
                   <h3>SVM Image Classification for Cats and Dogs</h3>
@@ -619,10 +627,10 @@
     <div class="canvas-container">
       <canvas id="gameCanvas" width="800" height="500" aria-label="Snake game board">Use the direction controls to play Snake.</canvas>
       
-      <!-- Quote Display -->
-      <div id="quoteDisplay" class="quote-display">
-        <div id="quoteText"></div>
-      </div>
+    </div>
+    <!-- Keep food feedback outside the board and reserve its space. -->
+    <div id="quoteDisplay" class="quote-display" role="status" aria-live="polite">
+      <div id="quoteText">Collect an orb. Keep the streak going.</div>
     </div>
 
     <div class="snake-touch-controls" aria-label="Snake controls">
