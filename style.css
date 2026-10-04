@@ -2294,7 +2294,7 @@ footer p span{
   top: 0; /* Slide fully down */
 }
 
-.label {
+.top-reveal .label {
   position: absolute;
   top: 160px; /* Adjust depending on image size */
   left: 10px;

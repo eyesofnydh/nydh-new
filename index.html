@@ -26,6 +26,10 @@
 
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/skills-chart.css">
+  <link rel="stylesheet" href="css/guestbook.css">
+  <link rel="stylesheet" href="css/snake-game.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
@@ -52,7 +56,7 @@
     <nav class="nav">
       <div class="navigation container">
         <div class="logo">
-          <a href=""><h1>ny<span>dh</span></h1></a>
+          <a href="#home" aria-label="Nidhin home"><h1>ny<span>dh</span></h1></a>
         </div>
     
         <div class="menu" id="navigation-menu">
@@ -60,9 +64,7 @@
             <div class="logo">
               <h1>Nidhin <span>Narayanan</span></h1>
             </div>
-            <div class="close" role="button" tabindex="0" aria-label="Close menu">
-              <i class="fas fa-times"></i>
-            </div>
+            <button type="button" class="close" aria-label="Close menu">×</button>
           </div>
     
           <ul class="nav-list">
@@ -77,9 +79,7 @@
           </ul>
         </div>
    
-        <div class="hamburger" role="button" tabindex="0" aria-label="Open menu" aria-controls="navigation-menu" aria-expanded="false">
-          <!-- <i class="fas fa-bars"></i> -->
-        </div>
+        <button type="button" class="hamburger" aria-label="Open menu" aria-controls="navigation-menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
       </div>
     </nav>
   </header>
@@ -127,9 +127,9 @@
       <a href="#contact">Hire me</a>
     </div>  -->
     <div class="iconsss">
-      <span><a href="https://www.linkedin.com/in/nidhin-narayanan/"><i class="fab fa-linkedin"></i></a></span>
-      <span><a href="https://www.github.com/eyesonydh"><i class="fab fa-github"></i></a></span>
-      <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></span>
+      <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" aria-label="linkedin"><i class="fab fa-linkedin"></i></a></span>
+      <span><a href="https://www.github.com/eyesonydh" aria-label="github"><i class="fab fa-github"></i></a></span>
+      <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer" aria-label="instagram"><i class="fab fa-instagram"></i></a></span>
     </div>
 
   </div>
@@ -149,7 +149,7 @@
         <img src="./images/about1.png" alt="" />
       </div>
       <div class="right" data-aos="fade-left" data-aos-duration="1500">
-        <h1>I'm Nidhin a <span id="type2" class="typeit"></span></h1>
+        <h1>I'm Nidhin a <span id="type2" class="typeit">Quality Analyst</span></h1>
         <p style="color: beige">
            
           I'm currently working as a Quality Analyst, making sure products are reliable and work smoothly. 
@@ -169,7 +169,7 @@
 <div id="box123-popup" class="box123-popup box123-hidden">
   <div class="box123-popup-overlay">
     <div class="box123-popup-inner">
-      <div class="box123-popup-content box123-slide-in">
+      <div class="box123-popup-content box123-slide-in" role="dialog" aria-modal="true" aria-label="About Nidhin">
         <span class="box123-close-btn" role="button" tabindex="0" aria-label="Close about dialog">&times;</span>
 
         <div class="box123-section">
@@ -270,14 +270,13 @@
   </section>
   
   <!-- Styles -->
-  <link rel="stylesheet" href="css/skills-chart.css">
   
   <!-- Scripts -->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script defer src="https://code.highcharts.com/highcharts.js"></script>
+  <script defer src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script defer src="https://code.highcharts.com/modules/accessibility.js"></script>
   
-  <script src="js/skills-chart.js"></script>
+  <script defer src="js/skills-chart.js"></script>
   
   
   
@@ -317,12 +316,12 @@
     <form id="guestbook-form" class="guestbook-form">
       <div class="form-row">
         <div class="input-group">
-          <input type="text" id="author-name" placeholder="Your name (optional)" class="form-input">
+          <input type="text" id="author-name" aria-label="Your name" maxlength="100" placeholder="Your name (optional)" class="form-input">
         </div>
       </div>
       
       <div class="input-group">
-        <textarea id="message-text" placeholder="Leave a message..." required class="form-textarea"></textarea>
+        <textarea id="message-text" aria-label="Guestbook message" maxlength="2000" placeholder="Leave a message..." required class="form-textarea"></textarea>
       </div>
       
       <div class="reactions-container">
@@ -366,9 +365,7 @@
   </div>
 </section>
 
-<link rel="stylesheet" href="css/guestbook.css">
-
-<script src="js/guestbook.js"></script>
+<script defer src="js/guestbook.js"></script>
   
   <!-- Services  -->
    
@@ -382,7 +379,7 @@
         <span style="color:rgb(255, 255, 255)">Here is some of my Projects that I've done in various programming languages.</span>
       </p>
       <div class="portfolios">
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (1).jpg" alt="">
               </div>
@@ -390,14 +387,13 @@
                   <h3>Block Ballet</h3>
                   <p>It is a E-voting platform</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/e-vote/blob/main/README.md" class="icons">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/e-vote/blob/main/README.md" class="icons" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                      
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (4).jpg" alt="">
               </div>
@@ -405,13 +401,12 @@
                   <h3>Handrix</h3>
                   <p>A web based game.</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/Handrix/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/Handrix/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (6).jpg" alt="">
               </div>
@@ -419,14 +414,13 @@
                   <h3>Fit-Track</h3>
                   <p>online gym <br>management System.</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/Fit-track/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/Fit-track/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (2).jpg" alt="">
               </div>
@@ -434,14 +428,13 @@
                   <h3>Portifolio</h3>
                   
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/profile/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/profile/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (3).jpg" alt="">
               </div>
@@ -449,23 +442,20 @@
                   <h3>House Price Prediction</h3>
                   <p>predict the prices<br> of houses using<br> machine learning</p>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK01/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
+                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK01/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                       
                   </div>
               </div>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item" tabindex="0">
               <div class="image">
                   <img src="images/pic (5).jpg" alt="">
               </div>
               <div class="hover-items">
                   <h3>SVM Image Classification for Cats and Dogs</h3>
                   <div class="icons">
-                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK03/blob/main/README.md" class="icon">
-                          <i class="fab fa-github"></i>
-                      </a>
+                      <a href="https://github.com/eyesofnydh/PRODIGY_ML_TASK03/blob/main/README.md" class="icon" aria-label="github"><i class="fab fa-github"></i>
                       </a>
                   </div>
               </div>
@@ -584,9 +574,7 @@
   <h2 class="game-heading">🐍 SNAKE GAME</h2>
 
   <!-- Mobile Warning -->
-  <div class="mobile-warning">
-    <p>⚠️ This experience is optimized for desktop!</p>
-  </div>
+  <p class="game-help">Arrow keys or WASD on desktop. Use the direction buttons on touch screens.</p>
 
   <!-- Game Container -->
   <div class="game-container">
@@ -611,7 +599,7 @@
             <option value="boxless">Endless</option>
           </select>
         </label>
-        <button onclick="startGame()" class="premium-btn">▶ START GAME</button>
+        <button data-snake-start class="premium-btn">▶ START GAME</button>
       </div>
 
       <!-- Score Display -->
@@ -629,7 +617,7 @@
 
     <!-- Canvas Container -->
     <div class="canvas-container">
-      <canvas id="gameCanvas" width="800" height="500"></canvas>
+      <canvas id="gameCanvas" width="800" height="500" aria-label="Snake game board">Use the direction controls to play Snake.</canvas>
       
       <!-- Quote Display -->
       <div id="quoteDisplay" class="quote-display">
@@ -637,30 +625,37 @@
       </div>
     </div>
 
+    <div class="snake-touch-controls" aria-label="Snake controls">
+      <button type="button" data-direction="up" aria-label="Move up">↑</button>
+      <div><button type="button" data-direction="left" aria-label="Move left">←</button>
+      <button type="button" id="snake-pause" aria-label="Pause game" aria-pressed="false">Ⅱ</button>
+      <button type="button" data-direction="right" aria-label="Move right">→</button></div>
+      <button type="button" data-direction="down" aria-label="Move down">↓</button>
+    </div>
     <!-- Game Over Message -->
     <div id="gameOver" class="gameover-msg">
       <p>💀 GAME TERMINATED!</p>
       <p style="font-size: 16px; margin-top: 10px;">Your performance has been recorded.</p>
-      <button onclick="startGame()" class="premium-btn">🔄 RESTART MISSION</button>
+      <button data-snake-start class="premium-btn">🔄 RESTART MISSION</button>
     </div>
 
     <!-- Game Paused Message -->
     <div id="pauseOverlay" class="pause-overlay">
       ⏸️ MISSION PAUSED
-      <br><small style="font-size: 16px; color: #888;">Press <span class="key-highlight">ESC</span> to Resume</small>
+      <br><small style="font-size: 16px; color: #888;">Press <span class="key-highlight">ESC</span> or the pause button to resume</small>
     </div>
 
     <!-- Instruction Popup -->
-    <div class="popup-wrapper" id="popupWrapper">
-      <div class="popup-overlay" onclick="closePopup()"></div>
-      <div class="glass-popup">
+    <div class="popup-wrapper" id="popupWrapper" style="display:none">
+      <div class="popup-overlay" data-snake-begin></div>
+      <div class="glass-popup" role="dialog" aria-label="Snake game instructions">
         <h3>🎮 MISSION BRIEFING</h3>
         <p>
           Navigate using <span class="key-highlight">Arrow Keys</span> or <span class="key-highlight">WASD</span><br><br>
           Press <span class="key-highlight">ESC</span> to Pause/Resume<br><br>
           Collect energy orbs to grow stronger!
         </p>
-        <button onclick="closePopup()" class="premium-btn">🚀 BEGIN MISSION</button>
+        <button data-snake-begin class="premium-btn">🚀 BEGIN MISSION</button>
       </div>
     </div>
   </div>
@@ -674,9 +669,9 @@
   </audio>
 </section>
 
-<link rel="stylesheet" href="css/snake-game.css">
 
-<script src="js/snake-game.js"></script>
+
+<script defer src="js/snake-game.js"></script>
 
 <section id="myr-dino-game" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 10px; font-family: 'Courier New', monospace; background: #000000;" tabindex="0">
     <div style="background: #1a1a1a; border: 2px solid #444; border-radius: 8px; overflow: hidden; position: relative;">
@@ -699,7 +694,7 @@
         </div>
     </div>
 
-    <script src="js/dino-game.js"></script>
+    <script defer src="js/dino-game.js"></script>
 </section>
 
 
@@ -712,7 +707,7 @@
     <blockquote id="funny-quote-box" style="font-size: 1.25rem; font-style: italic; color: #eee; max-width: 700px; margin: 0 auto; line-height: 1.6;"></blockquote>
   </section>
   
-  <script src="js/quotes.js"></script>
+  <script defer src="js/quotes.js"></script>
   
 
   
@@ -724,7 +719,7 @@
     </div>
 
     <div class="contact-center container">
-      <div class="left" data-aos="fade-dowm" data-aos-duration="1500">
+      <div class="left" data-aos="fade-down" data-aos-duration="1500">
         <h2>Get In Touch</h2>
         <p>
           Hi, Have a great day :) I am here to help you. If you want to know something or you have any
@@ -755,11 +750,11 @@
         </div>
 
         <div class="icons1234">
-          <span><a href="https://www.github.com/eyesnydh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></span>
-          <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></span>
-          <!-- <span><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></span> -->
-          <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></span>
-          <!-- <span><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></span> -->
+          <span><a href="https://www.github.com/eyesnydh" target="_blank" rel="noopener noreferrer" aria-label="github"><i class="fab fa-github"></i></a></span>
+          <span><a href="https://www.linkedin.com/in/nidhin-narayanan/" target="_blank" rel="noopener noreferrer" aria-label="linkedin"><i class="fab fa-linkedin"></i></a></span>
+          <!-- <span><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="facebook"><i class="fab fa-facebook"></i></a></span> -->
+          <span><a href="https://www.instagram.com/nidh._i_/" target="_blank" rel="noopener noreferrer" aria-label="instagram"><i class="fab fa-instagram"></i></a></span>
+          <!-- <span><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="youtube"><i class="fab fa-youtube"></i></a></span> -->
         </div>
         
 
@@ -788,29 +783,29 @@
 
   <!-- Scripts -->
   <!-- AOS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <!-- TypeIt -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
   <!-- Glidejs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   <!-- Custom Script -->
-  <script src="index.js"></script>
+  <script defer src="index.js"></script>
   <!-- <script type="text/javascript" src="./asteroids.js"></script> -->
 
 
 
 
-  <script src="js/interactions.js"></script>
-  <script src="js/loader.js"></script>
-<script src="js/about-dialog.js"></script>
+  <script defer src="js/interactions.js"></script>
+  <script defer src="js/loader.js"></script>
+<script defer src="js/about-dialog.js"></script>
  
 <!-- Lucide icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="js/icons.js"></script>
-<script src="js/social-icons.js"></script>
-<script src="js/project-filter.js"></script>
+<script defer src="https://unpkg.com/lucide@latest"></script>
+<script defer src="js/icons.js"></script>
+<script defer src="js/social-icons.js"></script>
+<script defer src="js/project-filter.js"></script>
 
 
 

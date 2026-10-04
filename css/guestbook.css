@@ -38,7 +38,7 @@
   border-radius: 50%;
   filter: blur(80px);
   opacity: 0.1;
-  animation: float 8s ease-in-out infinite;
+  animation: guestbook-float 8s ease-in-out infinite;
 }
 
 .floating-particles::before {
@@ -55,7 +55,7 @@
   animation-delay: 4s;
 }
 
-@keyframes float {
+@keyframes guestbook-float {
   0%, 100% { 
     transform: translateY(0px) scale(1); 
     opacity: 0.1;
