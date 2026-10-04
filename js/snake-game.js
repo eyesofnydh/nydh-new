@@ -321,7 +321,7 @@ const canvas = document.getElementById('gameCanvas');
 
   // Event listeners
   gameSection.addEventListener('keydown', (e) => {
-    if (!gameRunning || /INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName)) return;
+    if (!gameRunning || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
 
     let handled = false;
 

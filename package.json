@@ -7,6 +7,7 @@
     "dev": "node scripts/server.cjs",
     "build": "node scripts/build.cjs",
     "preview": "node scripts/server.cjs --dist",
-    "test": "node scripts/check-site.cjs"
+    "test": "node scripts/check-games.cjs",
+    "test:browser": "node scripts/check-site.cjs"
   }
 }

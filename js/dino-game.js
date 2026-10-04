@@ -10,7 +10,10 @@
             let gameSpeed = 6;
             let score = 0;
             let highScore = 0;
-            try { highScore = Math.max(0, Number(localStorage.getItem('dinoHighScore')) || 0); } catch {}
+            try {
+                const storedScore = Number(localStorage.getItem('dinoHighScore'));
+                highScore = Number.isFinite(storedScore) ? Math.max(0, Math.floor(storedScore)) : 0;
+            } catch {}
             let frameId;
             let lastFrame = 0;
             let frameCount = 0;

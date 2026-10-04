@@ -1,7 +1,13 @@
 let chart;
 
     document.addEventListener("DOMContentLoaded", function () {
-      if (!window.Highcharts) return;
+      if (!window.Highcharts) {
+        const fallback = document.getElementById('highchart-pie');
+        fallback.classList.add('chart-fallback');
+        fallback.setAttribute('role', 'img');
+        fallback.setAttribute('aria-label', 'Quality Analyst 35%, Coder 30%, Photography 15%, Designer 20%');
+        return;
+      }
       chart = Highcharts.chart('highchart-pie', {
         chart: {
           type: 'pie',

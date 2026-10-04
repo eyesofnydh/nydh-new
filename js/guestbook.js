@@ -111,6 +111,7 @@ class GuestbookManager {
 
   renderMessages() {
     if (this.messages.length === 0) {
+      this.messagesList.replaceChildren();
       this.messagesList.classList.add('hidden');
       this.noMessagesEl.classList.remove('hidden');
       return;
