@@ -59,7 +59,16 @@ const server = createServer(outputRoot, { guestbookDirectory: path.join(root, 't
       return ids.filter((id, i) => ids.indexOf(id) !== i);
     }), []);
     await page.setViewportSize({ width: 390, height: 844 });
+    const projectLayout = await page.locator('.portfolio-item').evaluateAll(cards => cards.every(card => {
+      const image = card.querySelector('img').getBoundingClientRect();
+      const details = card.querySelector('.hover-items').getBoundingClientRect();
+      return details.top >= image.bottom - 1;
+    }));
+    assert.equal(projectLayout, true, 'Mobile project details must sit below images');
+    await page.locator('.portfolios').screenshot({ path: path.join(root, 'test-results', 'projects-mobile.png') });
     await page.locator('.hamburger').click();
+    await page.waitForTimeout(350);
+    await page.screenshot({ path: path.join(root, 'test-results', 'menu-mobile.png') });
     assert.equal(await page.locator('.menu').evaluate(element => element.classList.contains('show')), true);
     await page.locator('.menu a[href="#about"]').click();
     assert.equal(await page.locator('.menu').evaluate(element => element.classList.contains('show')), false);
