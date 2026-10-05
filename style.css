@@ -46,7 +46,8 @@ body {
 }
 .chara{
   
-  height: 100vh;
+  height: 100svh;
+  min-height: 56rem;
   background: linear-gradient(to right, #0a0a0a 50%, #421559 50%);
   overflow: hidden;
   position: relative;
@@ -96,9 +97,10 @@ font-family: 'Courier New', Courier, monospace;}
   left: 50%;
   transform: translateX(-50%);
   z-index: 90;
-  width: auto;
+  width: min(95svh, 100vw);
   height: auto;
-  max-height: 90vh; /* Natural size, no forced scaling */
+  max-height: none;
+  object-fit: contain;
 }
 .side-text {
   position: absolute;

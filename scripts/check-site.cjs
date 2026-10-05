@@ -34,14 +34,30 @@ const server = createServer(outputRoot, { guestbookDirectory: path.join(root, 't
         return rect.width > 0 && (rect.left < -1 || rect.right > innerWidth + 1);
       }).map(element => element.id || element.className));
       assert.deepEqual(overflow, [], `Content overflow at ${width}px`);
+      assert.ok(await page.locator(".chara").evaluate(el => el.getBoundingClientRect().height >= innerHeight - 1), `Full-screen hero at ${width}px`);
       if ([390, 820, 1440].includes(width)) await page.screenshot({ path: path.join(root, 'test-results', `home-${width}.png`) });
     }
+    assert.equal(await page.evaluate(() => document.activeElement.id), '');
+    const decodedSounds = await page.evaluate(async () => {
+      const context = new AudioContext();
+      try {
+        return await Promise.all(['sound/eat.wav', 'sound/game-over.wav'].map(async url => {
+          const response = await fetch(url);
+          const decoded = await context.decodeAudioData(await response.arrayBuffer());
+          return decoded.length > 0;
+        }));
+      } finally { await context.close(); }
+    });
+    assert.deepEqual(decodedSounds, [true, true], 'Original game sounds must decode');
+    await page.locator('#sound-toggle').click();
+    assert.equal(await page.evaluate(() => [...document.querySelectorAll('audio')].every(audio => audio.muted)), true);
+    await page.locator('#sound-toggle').click();
+    await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
     assert.equal(await page.locator('.loading-section').isVisible(), false);
     assert.deepEqual(await page.evaluate(() => {
       const ids = [...document.querySelectorAll('[id]')].map(element => element.id);
       return ids.filter((id, i) => ids.indexOf(id) !== i);
     }), []);
-    assert.equal(await page.evaluate(() => document.activeElement.id), '');
     await page.setViewportSize({ width: 390, height: 844 });
     await page.locator('.hamburger').click();
     assert.equal(await page.locator('.menu').evaluate(element => element.classList.contains('show')), true);
